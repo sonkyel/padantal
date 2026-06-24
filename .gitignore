@@ -1,0 +1,10 @@
+# Temp / cache
+.firecrawl/
+*.tmp
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Editor
+.vscode/

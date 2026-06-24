@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 168" fill="none">
+  <g fill="#16243B">
+    <!-- Vela (mainsail) -->
+    <path transform="translate(120,6)" d="M68 4 C54 28 36 58 18 104 C42 96 68 96 90 91 C84 58 78 30 68 4 Z"/>
+    <!-- Casco / swoosh inferior -->
+    <path transform="translate(120,6)" d="M26 110 C48 105 72 104 90 98 L96 104 C76 114 48 116 26 110 Z"/>
+    <!-- Wordmark -->
+    <text x="180" y="158" text-anchor="middle" font-family="Lexend, 'Segoe UI', Arial, sans-serif" font-weight="800" font-size="50" letter-spacing="6">PADANTAL</text>
+  </g>
+</svg>
