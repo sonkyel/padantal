@@ -137,13 +137,12 @@
   .knowtag{background:var(--bg-alt);border:1px solid var(--line);border-radius:14px;padding:16px 20px;flex:1;min-width:150px}
   .knowtag b{font-family:'Lexend';font-size:1.02rem;color:var(--ocean);display:block}
   .knowtag span{font-size:.9rem;color:var(--slate-500)}
-  .about-visual{position:relative;border-radius:24px;overflow:hidden;min-height:440px;
-    background:radial-gradient(120% 100% at 20% 0%,#13314f,var(--navy-800) 60%,var(--navy-900));
+  .about-visual{position:relative;border-radius:24px;overflow:hidden;min-height:460px;
+    background:linear-gradient(180deg,rgba(11,23,41,.28) 0%,rgba(11,23,41,.55) 55%,rgba(11,23,41,.92) 100%),url('assets/img/harbour.jpg');
+    background-size:cover;background-position:center;
     box-shadow:var(--shadow-lg);display:flex;flex-direction:column;justify-content:flex-end;padding:34px;color:#fff}
-  .about-visual .grid-lines{position:absolute;inset:0;opacity:.35;
-    background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
-    background-size:46px 46px}
-  .about-visual .vis-glow{position:absolute;width:320px;height:320px;border-radius:50%;top:-80px;right:-60px;background:radial-gradient(circle,rgba(14,165,233,.4),transparent 65%)}
+  .about-visual .grid-lines{display:none}
+  .about-visual .vis-glow{display:none}
   .about-visual .vis-icon{position:relative;width:60px;height:60px;border-radius:16px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;margin-bottom:auto}
   .about-visual .vis-icon svg{width:30px;height:30px;color:var(--ocean-light)}
   .about-visual h3{position:relative;font-size:1.5rem;margin-bottom:8px}
@@ -162,6 +161,16 @@
   .scard p{color:var(--slate-500);font-size:1rem}
   .services-note{margin-top:34px;text-align:center;font-family:'Lexend';font-weight:500;color:var(--slate-700);font-size:1.06rem}
   .services-note span{color:var(--ocean)}
+  .feature-band{position:relative;margin-top:46px;border-radius:22px;overflow:hidden;min-height:300px;
+    display:flex;align-items:flex-end;box-shadow:var(--shadow-md)}
+  .feature-band-img{position:absolute;inset:0;background-size:cover;background-position:center;
+    transform:scale(1.02);transition:transform .6s ease}
+  .feature-band::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(8,18,33,.86) 0%,rgba(8,18,33,.62) 45%,rgba(8,18,33,.30) 100%)}
+  .feature-band:hover .feature-band-img{transform:scale(1.06)}
+  .feature-band-inner{position:relative;z-index:2;padding:38px 40px;max-width:560px;color:#fff}
+  .feature-band-inner h3{font-size:clamp(1.4rem,2.4vw,1.9rem);font-weight:700;margin:14px 0 10px}
+  .feature-band-inner p{color:rgba(226,232,240,.86);font-size:1.02rem}
 
   /* ---------- PILLARS ---------- */
   .pillars{background:var(--navy-800);color:#fff;position:relative;overflow:hidden}
@@ -194,7 +203,7 @@
   .case{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin-bottom:28px;box-shadow:var(--shadow-sm);transition:box-shadow .25s ease}
   .case:hover{box-shadow:var(--shadow-md)}
   .case-grid{display:grid;grid-template-columns:300px 1fr}
-  .case-side{background:radial-gradient(120% 120% at 0% 0%,#13314f,var(--navy-800));color:#fff;padding:36px 32px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+  .case-side{background:linear-gradient(160deg,rgba(8,18,33,.74) 0%,rgba(8,18,33,.82) 60%,rgba(8,18,33,.92) 100%),var(--cimg,radial-gradient(120% 120% at 0% 0%,#13314f,var(--navy-800)));color:#fff;padding:36px 32px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;background-size:cover;background-position:center}
   .case-side .badge{display:inline-flex;align-items:center;gap:8px;font-family:'Lexend';font-weight:600;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ocean-light);background:rgba(14,165,233,.12);border:1px solid rgba(14,165,233,.3);padding:7px 13px;border-radius:999px;width:max-content}
   .case-side h3{font-size:1.34rem;margin:20px 0 0}
   .case-side .loc{display:flex;align-items:center;gap:7px;font-size:.9rem;color:rgba(226,232,240,.7);margin-top:14px}
@@ -237,10 +246,9 @@
   /* Panel izquierdo */
   .soc-aside{position:relative;border-radius:22px;overflow:hidden;min-height:440px;
     display:flex;align-items:flex-end;padding:40px;color:#fff;box-shadow:var(--shadow-lg)}
-  .soc-aside-bg{position:absolute;inset:0;background:radial-gradient(120% 100% at 20% 0%,#13314f,var(--navy-800) 60%,var(--navy-900))}
-  .soc-aside-bg::after{content:"";position:absolute;inset:0;opacity:.4;
-    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
-    background-size:42px 42px}
+  .soc-aside-bg{position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(11,23,41,.55) 0%,rgba(11,23,41,.62) 50%,rgba(11,23,41,.90) 100%),url('assets/img/fleet.jpg');
+    background-size:cover;background-position:center}
   .soc-aside-content{position:relative;z-index:2}
   .soc-aside h2{font-size:clamp(1.7rem,2.4vw,2.2rem);font-weight:700;margin:16px 0 14px}
   .soc-aside p{color:rgba(226,232,240,.82);font-size:1.02rem;margin-bottom:30px;max-width:340px}
@@ -496,7 +504,14 @@
         <p>Flota, planta, valor añadido y exportación integrados bajo un único marco operativo y legal.</p>
       </article>
     </div>
-    <p class="services-note reveal">Estándares internacionales · <span>enfoque técnico probado</span> · ejecución desde el primer día</p>
+    <div class="feature-band reveal">
+      <div class="feature-band-img" style="background-image:url('assets/img/ops.jpg')"></div>
+      <div class="feature-band-inner">
+        <span class="eyebrow light">Operación real</span>
+        <h3>Estándares internacionales y enfoque técnico probado</h3>
+        <p>De la captura a bordo a la exportación: ejecutamos cada operación con rigor técnico y cumplimiento regulatorio, desde el primer día.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -608,7 +623,7 @@
     <!-- Caso 1 -->
     <article class="case reveal">
       <div class="case-grid">
-        <div class="case-side">
+        <div class="case-side" style="--cimg:url('assets/img/seiner.jpg')">
           <span class="badge">Atún industrial</span>
           <div>
             <h3>Desarrollo del sector atunero industrial</h3>
@@ -630,7 +645,7 @@
     <!-- Caso 2 -->
     <article class="case reveal">
       <div class="case-grid">
-        <div class="case-side">
+        <div class="case-side" style="--cimg:url('assets/img/trawler.jpg')">
           <span class="badge">Pequeños pelágicos</span>
           <div>
             <h3>Desarrollo de la flota industrial pelágica</h3>
@@ -652,7 +667,7 @@
     <!-- Caso 3 -->
     <article class="case reveal">
       <div class="case-grid">
-        <div class="case-side">
+        <div class="case-side" style="--cimg:url('assets/img/almadraba.jpg')">
           <span class="badge">Atún rojo · BFT</span>
           <div>
             <h3>Desarrollo estratégico con Grupo Ricardo Fuentes</h3>
