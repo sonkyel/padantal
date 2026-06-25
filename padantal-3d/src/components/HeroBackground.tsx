@@ -46,9 +46,9 @@ export function HeroBackground() {
         </div>
       )}
 
-      {/* Velos de profundidad para contraste del texto */}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,23,41,.4)_0%,rgba(11,23,41,.5)_50%,rgba(11,23,41,.9)_100%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,23,41,.72)_0%,rgba(11,23,41,.35)_45%,transparent_100%)]" />
+      {/* Velos de profundidad: solo lo justo para el texto (izquierda) y el fundido inferior */}
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,transparent_45%,rgba(11,23,41,.65)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,23,41,.6)_0%,rgba(11,23,41,.2)_40%,transparent_70%)]" />
     </div>
   );
 }

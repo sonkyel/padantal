@@ -2,25 +2,35 @@
 
 /* ---------- Tokens de marca Padantal (ver DESIGN.md) ---------- */
 @theme {
-  /* Superficies oceánicas (oscuro por defecto) */
+  /* Superficies claras (editorial) */
+  --color-paper: #f3f6fa; /* fondo base claro, leve tinte frío */
+  --color-surface: #ffffff; /* tarjetas */
+  --color-stone: #e7edf3; /* fills/bordes sutiles */
+
+  /* Texto sobre claro */
+  --color-night: #0f2138; /* titulares / texto principal navy */
+  --color-slate: #51637a; /* texto secundario (≥4.5:1 sobre claro) */
+
+  /* Superficies oceánicas (zonas oscuras: hero, cierre) */
   --color-abyss: #0b1729;
   --color-navy-900: #0b1729;
   --color-navy-800: #0f172a;
   --color-navy-700: #152238;
   --color-navy-600: #1d2d49;
 
-  /* Texto */
+  /* Texto sobre oscuro */
   --color-ink: #f2f6fb;
   --color-muted: #9db2c9;
 
   /* Marca / acentos */
-  --color-ocean: #0ea5e9;
-  --color-ocean-deep: #0369a1;
-  --color-aqua: #22d3ee;
-  --color-sun: #f5b358;
+  --color-ocean: #0ea5e9; /* relleno acento */
+  --color-ocean-deep: #0369a1; /* texto/links sobre claro */
+  --color-aqua: #22d3ee; /* acento sobre oscuro */
+  --color-sun: #e08a2b; /* cálido puntual */
 
   /* Líneas */
-  --color-line: rgba(226, 232, 240, 0.12);
+  --color-line: #dbe3ec; /* sobre claro */
+  --color-line-dark: rgba(226, 232, 240, 0.12); /* sobre oscuro */
 
   /* Tipografía */
   --font-display: var(--font-display), "Lexend", system-ui, sans-serif;
@@ -78,6 +88,20 @@ p {
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes scrollcue {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 12px);
   }
 }
 

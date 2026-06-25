@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { Suspense, useEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { Water } from "three/examples/jsm/objects/Water.js";
@@ -118,8 +118,10 @@ export default function Ocean3D() {
         scene.fog = new THREE.FogExp2(0x0b1729, 0.00028);
       }}
     >
-      <Ocean />
-      <SkyDome />
+      <Suspense fallback={null}>
+        <Ocean />
+        <SkyDome />
+      </Suspense>
       <CameraRig />
     </Canvas>
   );
