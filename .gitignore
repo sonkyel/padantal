@@ -1,6 +1,25 @@
+# Agent skills (no forman parte del sitio)
+.agents/
+.codex/
+.gemini/
+skills-lock.json
+
+# Material de origen
+*.pdf
+
 # Temp / cache
 .firecrawl/
 *.tmp
+
+# Dependencias / build (proyecto 3D futuro)
+node_modules/
+.next/
+dist/
+.vercel/
+
+# Entorno
+.env
+.env.local
 
 # OS
 Thumbs.db
