@@ -17,76 +17,64 @@ export function SiteNav() {
   }, []);
 
   const LangToggle = () => (
-    <div className="flex items-center rounded-full border border-line p-0.5 text-[0.78rem] font-semibold">
-      {(["es", "en"] as const).map((l) => (
-        <button
-          key={l}
-          type="button"
-          onClick={() => setLocale(l)}
-          className={`rounded-full px-2.5 py-1 uppercase transition-colors ${
-            locale === l ? "bg-cyan text-[#04121f]" : "text-muted hover:text-ink"
-          }`}
-        >
-          {l}
-        </button>
+    <div className="label flex items-center gap-1">
+      {(["es", "en"] as const).map((l, i) => (
+        <span key={l} className="flex items-center gap-1">
+          {i > 0 && <span className="text-faint">/</span>}
+          <button
+            type="button"
+            onClick={() => setLocale(l)}
+            className={`uppercase transition-colors ${locale === l ? "text-cream" : "text-faint hover:text-cream"}`}
+          >
+            {l}
+          </button>
+        </span>
       ))}
     </div>
   );
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "border-b border-line bg-base/85 backdrop-blur-xl" : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4">
-        <a href="#inicio" aria-label="Padantal SL" className="text-ink">
+    <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled ? "border-b border-line bg-base/80 backdrop-blur-xl" : ""}`}>
+      <div className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-4 md:px-10">
+        <a href="#inicio" aria-label="Padantal SL" className="text-cream">
           <PadantalLogo />
         </a>
 
-        <nav className="hidden items-center gap-7 md:flex">
-          {t.nav.links.map((l) => (
-            <a key={l.href} href={l.href} className="text-[0.92rem] font-medium text-muted transition-colors duration-200 hover:text-cyan-bright">
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
+          {t.nav.links.map((l, i) => (
+            <a key={l.href} href={l.href} className="group flex items-center gap-1.5 text-[0.92rem] text-muted transition-colors hover:text-cream">
+              <span className="label-muted text-[0.6rem] transition-colors group-hover:text-acc">0{i + 1}</span>
               {l.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-5 md:flex">
           <LangToggle />
-          <a href={t.nav.cta.href} className="btn btn-primary">
+          <a href={t.nav.cta.href} className="btn btn-primary !py-2.5">
             {t.nav.cta.label}
             <Arrow />
           </a>
         </div>
 
-        <div className="flex items-center gap-3 md:hidden">
+        <div className="flex items-center gap-4 md:hidden">
           <LangToggle />
-          <button
-            type="button"
-            aria-label="Menú"
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-            className="relative flex h-10 w-10 items-center justify-center"
-          >
-            <span className={`absolute h-0.5 w-6 rounded bg-ink transition-all duration-300 ${open ? "rotate-45" : "-translate-y-1.5"}`} />
-            <span className={`absolute h-0.5 w-6 rounded bg-ink transition-all duration-300 ${open ? "-rotate-45" : "translate-y-1.5"}`} />
+          <button type="button" aria-label="Menú" aria-expanded={open} onClick={() => setOpen((v) => !v)} className="relative flex h-10 w-10 items-center justify-center">
+            <span className={`absolute h-0.5 w-6 rounded bg-cream transition-all duration-300 ${open ? "rotate-45" : "-translate-y-1.5"}`} />
+            <span className={`absolute h-0.5 w-6 rounded bg-cream transition-all duration-300 ${open ? "-rotate-45" : "translate-y-1.5"}`} />
           </button>
         </div>
       </div>
 
-      <div
-        className={`overflow-hidden border-t border-line bg-base/95 backdrop-blur-xl transition-all duration-400 md:hidden ${
-          open ? "max-h-[420px] opacity-100" : "pointer-events-none max-h-0 opacity-0"
-        }`}
-      >
-        <nav className="flex flex-col gap-1 p-4">
-          {t.nav.links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="rounded-2xl px-4 py-3 text-ink transition-colors hover:bg-white/5">
+      <div className={`overflow-hidden border-t border-line bg-base/95 backdrop-blur-xl transition-all duration-400 md:hidden ${open ? "max-h-[420px] opacity-100" : "pointer-events-none max-h-0 opacity-0"}`}>
+        <nav className="flex flex-col gap-1 p-5">
+          {t.nav.links.map((l, i) => (
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="flex items-center gap-3 rounded-xl px-4 py-3 text-cream transition-colors hover:bg-white/5">
+              <span className="label-muted text-[0.62rem]">0{i + 1}</span>
               {l.label}
             </a>
           ))}
-          <a href={t.nav.cta.href} onClick={() => setOpen(false)} className="btn btn-primary mt-2 justify-center">
+          <a href={t.nav.cta.href} onClick={() => setOpen(false)} className="btn btn-primary mt-3 justify-center">
             {t.nav.cta.label}
             <Arrow />
           </a>

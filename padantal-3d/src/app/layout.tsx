@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Bricolage_Grotesque, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { LangProvider } from "@/i18n/lang";
+import { CustomCursor } from "@/components/CustomCursor";
 
-// Titulares grotesca con peso (look corporativo/tech)
-const display = Space_Grotesk({
+// Display gigante (boutique)
+const display = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["600", "700", "800"],
   display: "swap",
 });
 
@@ -16,6 +17,14 @@ const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+// Etiquetas / índices técnicos
+const mono = Space_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -42,9 +51,10 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${display.variable} ${inter.variable} h-full antialiased`}
+      className={`${display.variable} ${inter.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full">
+        <CustomCursor />
         <LangProvider>{children}</LangProvider>
       </body>
     </html>

@@ -23,10 +23,10 @@ export function ContactForm() {
     e.currentTarget.reset();
   };
 
-  const field = "w-full rounded-2xl border border-line bg-white/[0.03] px-4 py-3 text-[0.98rem] text-ink outline-none transition-colors placeholder:text-faint focus:border-cyan/60";
+  const field = "w-full rounded-2xl border border-line bg-white/[0.03] px-4 py-3 text-[0.98rem] text-cream outline-none transition-colors placeholder:text-faint focus:border-acc/60";
 
   return (
-    <form onSubmit={onSubmit} noValidate className="glass rounded-3xl p-6 md:p-8">
+    <form onSubmit={onSubmit} noValidate className="card rounded-3xl p-6 md:p-8">
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block">
           <span className="mb-1.5 block text-[0.82rem] text-muted">{f.name}</span>
@@ -49,7 +49,7 @@ export function ContactForm() {
         <span className="mb-1.5 block text-[0.82rem] text-muted">{f.interest}</span>
         <select name="interest" className={field}>
           {f.interests.map((i) => (
-            <option key={i} className="bg-surface-2">{i}</option>
+            <option key={i} className="bg-surface">{i}</option>
           ))}
         </select>
       </label>
@@ -60,7 +60,7 @@ export function ContactForm() {
       <button type="submit" className="btn btn-primary mt-5 w-full justify-center">
         {f.send}
       </button>
-      {status === "ok" && <p className="mt-3 text-[0.9rem] font-medium text-cyan-bright">{f.ok}</p>}
+      {status === "ok" && <p className="mt-3 text-[0.9rem] font-medium text-acc">{f.ok}</p>}
       {status === "err" && <p className="mt-3 text-[0.9rem] font-medium text-red-400">{f.err}</p>}
       <p className="mt-3 text-center text-[0.78rem] text-faint">{f.priv}</p>
     </form>
