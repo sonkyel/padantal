@@ -3,6 +3,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { PadantalLogo } from "@/components/PadantalLogo";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Reveal } from "@/components/Reveal";
+import { HeroScrollVideo } from "@/components/HeroScrollVideo";
 import {
   hero,
   about,
@@ -22,54 +23,20 @@ export default function Home() {
       <SiteNav />
 
       <main id="inicio">
-        {/* ===================== HERO (Editorial Split) ===================== */}
-        <section className="relative px-6 pb-20 pt-32 md:pb-28 md:pt-40">
-          <div className="mx-auto grid max-w-[1200px] items-center gap-12 lg:grid-cols-[1.08fr_.92fr]">
-            <div>
-              <span className="eyebrow">{hero.eyebrow}</span>
-              <h1 className="mt-6 text-[clamp(2.8rem,6.4vw,5.6rem)] font-medium leading-[0.98] tracking-[-0.03em]">
-                {hero.titleLead}{" "}
-                <span className="italic text-ocean">{hero.titleAccent}</span>
-              </h1>
-              <p className="mt-7 max-w-[520px] text-[1.1rem] leading-relaxed text-muted">
-                {hero.lead}
-              </p>
-              <div className="mt-9 flex flex-wrap items-center gap-3">
-                <a href={hero.ctaPrimary.href} className="btn btn-primary">
-                  {hero.ctaPrimary.label}
-                  <span className="ic"><Arrow /></span>
-                </a>
-                <a href={hero.ctaSecondary.href} className="btn btn-ghost">
-                  {hero.ctaSecondary.label}
-                </a>
-              </div>
-            </div>
+        {/* ===================== HERO (vídeo scroll-scrub) ===================== */}
+        <HeroScrollVideo />
 
-            <Reveal className="bezel">
-              <div className="bezel-core relative aspect-[4/5] overflow-hidden">
-                <Image
-                  src="/assets/img/hero.jpg"
-                  alt="Embarcación pesquera industrial en mar abierto al atardecer"
-                  fill
-                  priority
-                  sizes="(max-width:1024px) 100vw, 45vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(14,27,41,.55)_100%)]" />
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Stats */}
-          <div className="mx-auto mt-16 grid max-w-[1200px] grid-cols-2 gap-x-8 gap-y-8 border-t border-ink/10 pt-10 md:grid-cols-4">
+        {/* Stats */}
+        <section className="px-6">
+          <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-8 gap-y-8 border-b border-ink/10 py-14 md:grid-cols-4">
             {hero.stats.map((s) => (
-              <div key={s.label}>
+              <Reveal key={s.label}>
                 <div className="font-display text-[clamp(2.2rem,3.6vw,3rem)] font-medium leading-none text-ink">
                   {s.value}
                   <span className="ml-1 text-[0.5em] font-normal text-ocean">{s.unit}</span>
                 </div>
                 <div className="mt-2 text-[0.9rem] text-muted">{s.label}</div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
