@@ -1,15 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { hero, heroCards, societies } from "@/content/site";
+import { hero } from "@/content/site";
 
 const SRC = "/assets/video/atunero.mp4";
 const POSTER = "/assets/video/poster.jpg";
 
 /**
- * Hero dark premium: vídeo del atunero a sangre + tarjetas glass flotando (estilo dashboard).
- * El vídeo se "rasca" con el scroll (scroll-scrubbing). Fallback a póster/loop en móvil/reduce-motion.
+ * Hero editorial: vídeo del atunero a sangre (el color vive dentro del marco) con titular
+ * susurrado en el tercio inferior. El vídeo se "rasca" con el scroll (scroll-scrubbing).
+ * Fallback a póster/loop en móvil o reduce-motion.
  */
 export function HeroScrollVideo() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -68,7 +68,6 @@ export function HeroScrollVideo() {
   return (
     <section ref={sectionRef} className="relative h-[240vh]">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Vídeo */}
         <video
           ref={videoRef}
           src={SRC}
@@ -81,84 +80,33 @@ export function HeroScrollVideo() {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        {/* Gradados oscuros para contraste */}
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,15,22,.55)_0%,rgba(10,15,22,.25)_35%,rgba(10,15,22,.55)_70%,rgba(10,15,22,.96)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,15,22,.7)_0%,rgba(10,15,22,.2)_50%,rgba(10,15,22,.7)_100%)]" />
-        {/* Glow ámbar ambiental */}
-        <div className="amber-orb left-1/2 top-1/3 h-[40rem] w-[40rem] -translate-x-1/2 opacity-50" />
+        {/* Velo sólido mínimo solo en el tercio inferior (legibilidad, no atmósfera) */}
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,rgba(14,18,22,.72)_100%)]" />
 
-        {/* Contenido */}
-        <div className="relative flex h-full flex-col">
-          <div className="flex flex-1 items-center">
-            <div className="mx-auto grid w-full max-w-[1280px] items-center gap-8 px-6 lg:grid-cols-[1fr_auto]">
-              {/* Texto */}
-              <div className="max-w-[680px]">
-                <span className="eyebrow">{hero.eyebrow}</span>
-                <h1 className="mt-6 text-[clamp(2.8rem,6.6vw,5.6rem)] font-medium leading-[0.98] text-white drop-shadow-[0_2px_30px_rgba(0,0,0,.6)]">
-                  {hero.titleLead}{" "}
-                  <span className="text-amber-bright">{hero.titleAccent}</span>
-                </h1>
-                <p className="mt-7 max-w-[520px] text-[1.12rem] leading-relaxed text-white/85 drop-shadow-[0_1px_16px_rgba(0,0,0,.7)]">
-                  {hero.lead}
-                </p>
-                <div className="mt-9 flex flex-wrap items-center gap-3">
-                  <a href={hero.ctaPrimary.href} className="btn btn-primary">
-                    {hero.ctaPrimary.label}
-                    <span className="ic"><Arrow /></span>
-                  </a>
-                  <a href={hero.ctaSecondary.href} className="btn btn-ghost">
-                    {hero.ctaSecondary.label}
-                  </a>
-                </div>
-              </div>
-
-              {/* Tarjetas KPI glass (ocultas en móvil) */}
-              <div className="hidden w-[300px] flex-col gap-4 lg:flex">
-                {heroCards.map((c) => (
-                  <div key={c.label} className="glass rounded-2xl p-5">
-                    <div className="flex items-baseline justify-between">
-                      <div className="font-display text-[2.1rem] font-semibold leading-none text-white">
-                        {c.value}
-                        {c.unit && <span className="ml-1 text-[0.5em] font-normal text-amber-bright">{c.unit}</span>}
-                      </div>
-                      <Spark />
-                    </div>
-                    <div className="mt-3 text-[0.92rem] text-white/80">{c.label}</div>
-                    <div className="mt-1 text-[0.72rem] font-medium uppercase tracking-[0.12em] text-amber-bright/90">
-                      {c.trend}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Franja "Sociedades / Trusted by" */}
-          <div className="relative border-t border-white/10 bg-base/30 backdrop-blur-md">
-            <div className="mx-auto flex max-w-[1280px] flex-wrap items-center gap-x-10 gap-y-4 px-6 py-5">
-              <span className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white/45">
-                Sociedades con participación activa
-              </span>
-              <div className="flex flex-1 flex-wrap items-center gap-2.5">
-                {societies.logos.map((l) => (
-                  <span key={l.alt} className="flex h-8 items-center rounded-lg bg-white/95 px-3">
-                    <Image
-                      src={l.src}
-                      alt={l.alt}
-                      width={110}
-                      height={24}
-                      style={{ width: "auto", height: "auto" }}
-                      className="max-h-5 max-w-[96px] object-contain"
-                    />
-                  </span>
-                ))}
-              </div>
+        {/* Contenido en el tercio inferior */}
+        <div className="on-photo absolute inset-x-0 bottom-0">
+          <div className="mx-auto max-w-[1440px] px-6 pb-16 md:pb-20">
+            <span className="eyebrow text-white/80">{hero.eyebrow}</span>
+            <h1 className="display mt-4 max-w-[15ch] text-[clamp(2.8rem,8vw,7rem)] text-white">
+              {hero.titleLead} {hero.titleAccent}
+            </h1>
+            <p className="mt-5 max-w-[42ch] text-[1.02rem] leading-relaxed text-white/85">
+              {hero.lead}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a href={hero.ctaPrimary.href} className="btn btn-primary">
+                {hero.ctaPrimary.label}
+                <Arrow />
+              </a>
+              <a href={hero.ctaSecondary.href} className="btn btn-ghost">
+                {hero.ctaSecondary.label}
+              </a>
             </div>
           </div>
         </div>
 
         {/* Indicador de scroll */}
-        <div className="pointer-events-none absolute bottom-24 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-white/55">
+        <div className="on-photo pointer-events-none absolute right-8 top-1/2 hidden -translate-y-1/2 flex-col items-center gap-2 text-[0.68rem] uppercase tracking-[0.2em] text-white/55 md:flex">
           <span className="relative h-9 w-[22px] rounded-full border-2 border-white/40">
             <span className="absolute left-1/2 top-[7px] h-[7px] w-[3px] -translate-x-1/2 rounded bg-white motion-safe:animate-[scrollcue_1.6s_infinite]" />
           </span>
@@ -171,16 +119,8 @@ export function HeroScrollVideo() {
 
 function Arrow() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}>
       <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function Spark() {
-  return (
-    <svg viewBox="0 0 40 20" className="h-5 w-10 text-amber" fill="none" stroke="currentColor" strokeWidth={2}>
-      <path d="M1 16 L9 10 L16 13 L24 5 L32 8 L39 2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

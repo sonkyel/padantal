@@ -1,20 +1,12 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-// Display grotesque limpia (look tech premium)
-const display = Space_Grotesk({
-  variable: "--font-display",
+// Inter (sustituto libre de "Oracle"): pesos susurrados 200–500
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-// Sans para texto / UI
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["200", "300", "400", "500"],
   display: "swap",
 });
 
@@ -41,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${display.variable} ${jakarta.variable} h-full antialiased`}
+      className={`${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full">{children}</body>
     </html>
