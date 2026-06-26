@@ -1,48 +1,37 @@
 @import "tailwindcss";
 
-/* ---------- Tokens de marca Padantal (ver DESIGN.md) ---------- */
+/* ============ Tokens — Editorial de lujo (claro, marítimo) ============ */
 @theme {
-  /* Superficies claras (editorial) */
-  --color-paper: #f3f6fa; /* fondo base claro, leve tinte frío */
-  --color-surface: #ffffff; /* tarjetas */
-  --color-stone: #e7edf3; /* fills/bordes sutiles */
+  /* Superficies */
+  --color-paper: #f6f3ed; /* hueso cálido (base) */
+  --color-paper-2: #efeae1; /* variante para ritmo */
+  --color-surface: #ffffff; /* núcleo de tarjetas */
 
-  /* Texto sobre claro */
-  --color-night: #0f2138; /* titulares / texto principal navy */
-  --color-slate: #51637a; /* texto secundario (≥4.5:1 sobre claro) */
+  /* Tinta */
+  --color-ink: #13212f; /* titulares / texto principal */
+  --color-muted: #52606e; /* texto secundario (AA sobre claro) */
+  --color-faint: #8a96a3; /* terciario / metadatos */
 
-  /* Superficies oceánicas (zonas oscuras: hero, cierre) */
-  --color-abyss: #0b1729;
-  --color-navy-900: #0b1729;
-  --color-navy-800: #0f172a;
-  --color-navy-700: #152238;
-  --color-navy-600: #1d2d49;
+  /* Acentos */
+  --color-ocean: #0b6e9e; /* acento marca (links/realces) */
+  --color-ocean-deep: #075074;
+  --color-brass: #b5894f; /* cálido puntual (lujo) */
 
-  /* Texto sobre oscuro */
-  --color-ink: #f2f6fb;
-  --color-muted: #9db2c9;
-
-  /* Marca / acentos */
-  --color-ocean: #0ea5e9; /* relleno acento */
-  --color-ocean-deep: #0369a1; /* texto/links sobre claro */
-  --color-aqua: #22d3ee; /* acento sobre oscuro */
-  --color-sun: #e08a2b; /* cálido puntual */
-
-  /* Líneas */
-  --color-line: #dbe3ec; /* sobre claro */
-  --color-line-dark: rgba(226, 232, 240, 0.12); /* sobre oscuro */
+  /* Sección oscura de respiro */
+  --color-night: #0e1b29;
+  --color-night-2: #14283a;
 
   /* Tipografía */
-  --font-display: var(--font-display), "Lexend", system-ui, sans-serif;
-  --font-body: var(--font-body), "Source Sans 3", system-ui, sans-serif;
+  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-body), system-ui, sans-serif;
 
-  /* Easing premium (ease-out exponencial) */
+  /* Easings premium */
+  --ease-lux: cubic-bezier(0.32, 0.72, 0, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
@@ -50,21 +39,22 @@ html {
 }
 
 body {
-  background: var(--color-abyss);
+  background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-body);
-  line-height: 1.65;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 h1,
 h2,
-h3,
-h4 {
+h3 {
   font-family: var(--font-display);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
   text-wrap: balance;
+  color: var(--color-ink);
 }
 
 p {
@@ -72,80 +62,154 @@ p {
 }
 
 ::selection {
-  background: var(--color-aqua);
-  color: var(--color-navy-900);
-}
-
-/* Foco visible y accesible */
-:focus-visible {
-  outline: 2px solid var(--color-aqua);
-  outline-offset: 2px;
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes scrollcue {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 0);
-  }
-  40% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, 12px);
-  }
-}
-
-/* ---------- Botones ---------- */
-.btn-primary,
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  border-radius: 9999px;
-  padding: 0.85rem 1.6rem;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.98rem;
-  cursor: pointer;
-  transition:
-    transform 0.2s var(--ease-out-quart),
-    background-color 0.2s ease,
-    border-color 0.2s ease;
-}
-.btn-primary {
   background: var(--color-ocean);
   color: #fff;
-  box-shadow: 0 10px 28px -8px color-mix(in srgb, var(--color-ocean) 70%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ocean);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============ Grano de film (overlay fijo) ============ */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============ Doble bisel (Doppelrand) ============ */
+.bezel {
+  border-radius: 2rem;
+  padding: 0.4rem;
+  background: rgba(19, 33, 47, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(19, 33, 47, 0.06);
+}
+.bezel-core {
+  border-radius: calc(2rem - 0.4rem);
+  background: var(--color-surface);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    0 30px 60px -28px rgba(19, 33, 47, 0.22);
+}
+/* Bisel sobre fondo oscuro */
+.bezel-dark {
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.bezel-dark .bezel-core {
+  background: var(--color-night-2);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.08),
+    0 30px 60px -28px rgba(0, 0, 0, 0.5);
+}
+
+/* ============ Botones (button-in-button, hover magnético) ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-radius: 9999px;
+  padding: 0.7rem 0.8rem 0.7rem 1.5rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.97rem;
+  cursor: pointer;
+  transition:
+    transform 0.5s var(--ease-lux),
+    background-color 0.4s var(--ease-lux),
+    color 0.4s var(--ease-lux),
+    box-shadow 0.4s var(--ease-lux);
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn .ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  transition: transform 0.5s var(--ease-lux);
+}
+.btn .ic svg {
+  width: 1rem;
+  height: 1rem;
+}
+.btn-primary {
+  background: var(--color-ink);
+  color: #fff;
+  box-shadow: 0 18px 40px -18px rgba(19, 33, 47, 0.55);
+}
+.btn-primary .ic {
+  background: rgba(255, 255, 255, 0.14);
 }
 .btn-primary:hover {
   background: var(--color-ocean-deep);
-  transform: translateY(-2px);
+}
+.btn-primary:hover .ic {
+  transform: translate(2px, -1px) scale(1.06);
 }
 .btn-ghost {
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 0.7rem 1.4rem;
+  background: transparent;
   color: var(--color-ink);
+  box-shadow: inset 0 0 0 1px rgba(19, 33, 47, 0.18);
 }
 .btn-ghost:hover {
+  box-shadow: inset 0 0 0 1px rgba(19, 33, 47, 0.4);
+  background: rgba(19, 33, 47, 0.03);
+}
+/* Variante sobre oscuro */
+.on-dark .btn-primary {
+  background: #fff;
+  color: var(--color-ink);
+}
+.on-dark .btn-primary .ic {
+  background: rgba(19, 33, 47, 0.1);
+}
+.on-dark .btn-ghost {
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+.on-dark .btn-ghost:hover {
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* ============ Eyebrow pill ============ */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.32rem 0.8rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-ocean-deep);
+  background: rgba(11, 110, 158, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(11, 110, 158, 0.15);
+}
+.on-dark .eyebrow {
+  color: #7fd0f0;
+  background: rgba(127, 208, 240, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(127, 208, 240, 0.2);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .btn-primary:hover,
-  .btn-ghost:hover {
-    transform: none;
+  .btn,
+  .btn .ic {
+    transition: none;
   }
 }

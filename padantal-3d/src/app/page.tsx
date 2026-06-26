@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { SiteNav } from "@/components/SiteNav";
 import { PadantalLogo } from "@/components/PadantalLogo";
-import { ImmersiveBackground } from "@/components/ImmersiveBackground";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -18,227 +17,255 @@ import {
 export default function Home() {
   return (
     <>
+      <div className="grain" aria-hidden="true" />
       <SmoothScroll />
-      <ImmersiveBackground />
       <SiteNav />
 
-      <main id="inicio" className="relative">
-        {/* ---------------- HERO (escena abierta) ---------------- */}
-        <section className="relative flex min-h-screen items-center">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_30%_45%,rgba(6,16,31,.55),transparent_60%)]" />
-          <div className="mx-auto w-full max-w-[1180px] px-6 pb-24 pt-36">
-            <div className="max-w-[760px]">
-              <Eyebrow>{hero.eyebrow}</Eyebrow>
-              <h1 className="mt-5 text-[clamp(2.6rem,6vw,4.8rem)] font-extrabold drop-shadow-[0_2px_30px_rgba(0,0,0,.5)]">
-                {hero.titleLead} <span className="text-aqua">{hero.titleAccent}</span>
+      <main id="inicio">
+        {/* ===================== HERO (Editorial Split) ===================== */}
+        <section className="relative px-6 pb-20 pt-32 md:pb-28 md:pt-40">
+          <div className="mx-auto grid max-w-[1200px] items-center gap-12 lg:grid-cols-[1.08fr_.92fr]">
+            <div>
+              <span className="eyebrow">{hero.eyebrow}</span>
+              <h1 className="mt-6 text-[clamp(2.8rem,6.4vw,5.6rem)] font-medium leading-[0.98] tracking-[-0.03em]">
+                {hero.titleLead}{" "}
+                <span className="italic text-ocean">{hero.titleAccent}</span>
               </h1>
-              <p className="mt-6 max-w-[600px] text-[clamp(1.05rem,2vw,1.28rem)] text-ink/90 drop-shadow-[0_1px_12px_rgba(0,0,0,.6)]">
+              <p className="mt-7 max-w-[520px] text-[1.1rem] leading-relaxed text-muted">
                 {hero.lead}
               </p>
-              <div className="mt-9 flex flex-wrap gap-3.5">
-                <a href={hero.ctaPrimary.href} className="btn-primary">
+              <div className="mt-9 flex flex-wrap items-center gap-3">
+                <a href={hero.ctaPrimary.href} className="btn btn-primary">
                   {hero.ctaPrimary.label}
-                  <Arrow />
+                  <span className="ic"><Arrow /></span>
                 </a>
-                <a href={hero.ctaSecondary.href} className="btn-ghost">
+                <a href={hero.ctaSecondary.href} className="btn btn-ghost">
                   {hero.ctaSecondary.label}
                 </a>
               </div>
-
-              <dl className="mt-16 flex flex-wrap gap-x-10 gap-y-6">
-                {hero.stats.map((s) => (
-                  <div key={s.label}>
-                    <dt className="font-display text-[clamp(1.9rem,3.4vw,2.6rem)] font-bold">
-                      {s.value} <span className="text-aqua">{s.unit}</span>
-                    </dt>
-                    <dd className="text-[0.92rem] text-ink/70">{s.label}</dd>
-                  </div>
-                ))}
-              </dl>
             </div>
+
+            <Reveal className="bezel">
+              <div className="bezel-core relative aspect-[4/5] overflow-hidden">
+                <Image
+                  src="/assets/img/hero.jpg"
+                  alt="Embarcación pesquera industrial en mar abierto al atardecer"
+                  fill
+                  priority
+                  sizes="(max-width:1024px) 100vw, 45vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(14,27,41,.55)_100%)]" />
+              </div>
+            </Reveal>
           </div>
-          <ScrollCue />
+
+          {/* Stats */}
+          <div className="mx-auto mt-16 grid max-w-[1200px] grid-cols-2 gap-x-8 gap-y-8 border-t border-ink/10 pt-10 md:grid-cols-4">
+            {hero.stats.map((s) => (
+              <div key={s.label}>
+                <div className="font-display text-[clamp(2.2rem,3.6vw,3rem)] font-medium leading-none text-ink">
+                  {s.value}
+                  <span className="ml-1 text-[0.5em] font-normal text-ocean">{s.unit}</span>
+                </div>
+                <div className="mt-2 text-[0.9rem] text-muted">{s.label}</div>
+              </div>
+            ))}
+          </div>
         </section>
 
-        {/* ---------------- QUIÉNES SOMOS ---------------- */}
-        <Section id="nosotros">
-          <Reveal>
-            <Panel className="grid items-center gap-12 p-8 md:p-12 lg:grid-cols-[1.05fr_.95fr]">
-              <div>
-                <Eyebrow>{about.eyebrow}</Eyebrow>
-                <h2 className="mt-4 text-[clamp(1.9rem,3.6vw,2.8rem)] font-bold">{about.title}</h2>
-                <div className="mt-6 space-y-4 text-[1.05rem] text-ink/85">
-                  {about.paragraphs.map((p, i) => (
-                    <p key={i}>{p}</p>
-                  ))}
-                </div>
-                <div className="mt-8 flex flex-wrap gap-3.5">
-                  {about.know.map((k) => (
-                    <div key={k.term} className="min-w-[150px] flex-1 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                      <b className="font-display text-aqua">{k.term}</b>
-                      <p className="mt-1 text-[0.9rem] text-ink/65">{k.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="relative min-h-[360px] overflow-hidden rounded-2xl border border-white/10">
+        {/* ===================== QUIÉNES SOMOS ===================== */}
+        <section id="nosotros" className="px-6 py-24 md:py-36">
+          <div className="mx-auto grid max-w-[1200px] items-center gap-14 lg:grid-cols-[.92fr_1.08fr]">
+            <Reveal className="bezel order-2 lg:order-1">
+              <div className="bezel-core relative aspect-[5/4] overflow-hidden">
                 <Image src="/assets/img/harbour.jpg" alt="Flota pesquera en puerto" fill sizes="(max-width:1024px) 100vw, 45vw" className="object-cover" />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,rgba(8,18,33,.85)_100%)]" />
-                <div className="absolute inset-x-0 bottom-0 p-7">
-                  <h3 className="text-xl font-bold">Presencia y ejecución global</h3>
-                  <p className="mt-1.5 text-[0.95rem] text-ink/80">De la captura a la exportación, cada eslabón con estándares internacionales.</p>
-                </div>
               </div>
-            </Panel>
-          </Reveal>
-        </Section>
-
-        {/* ---------------- QUÉ HACEMOS ---------------- */}
-        <Section id="servicios">
-          <Reveal>
-            <SectionHead eyebrow={services.eyebrow} title={services.title} intro={services.intro} center />
-          </Reveal>
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
-            {services.items.map((s, i) => (
-              <Reveal key={s.title} delay={i * 0.06} className="rounded-2xl border border-white/10 bg-navy-900/55 p-8 backdrop-blur-md transition-colors duration-300 hover:border-aqua/40">
-                <h3 className="text-[1.22rem] font-bold">{s.title}</h3>
-                <p className="mt-2.5 text-ink/70">{s.desc}</p>
-              </Reveal>
-            ))}
+            </Reveal>
+            <Reveal className="order-1 lg:order-2">
+              <span className="eyebrow">{about.eyebrow}</span>
+              <h2 className="mt-5 text-[clamp(2rem,4vw,3.2rem)] font-medium">{about.title}</h2>
+              <div className="mt-6 space-y-4 text-[1.05rem] leading-relaxed text-muted">
+                {about.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {about.know.map((k) => (
+                  <div key={k.term} className="rounded-2xl bg-surface p-5 shadow-[0_20px_44px_-30px_rgba(19,33,47,.4)] ring-1 ring-ink/[0.06]">
+                    <b className="font-display text-[1.15rem] font-semibold text-ocean">{k.term}</b>
+                    <p className="mt-1 text-[0.92rem] text-muted">{k.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
-        </Section>
+        </section>
 
-        {/* ---------------- 3 PILARES ---------------- */}
-        <Section id="pilares">
-          <Reveal>
-            <SectionHead eyebrow={pillars.eyebrow} title={pillars.title} intro={pillars.intro} center />
-          </Reveal>
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
-            {pillars.items.map((p, i) => (
-              <Reveal key={p.n} delay={i * 0.08} className="rounded-2xl border border-white/10 bg-navy-900/55 p-8 backdrop-blur-md transition-colors duration-300 hover:border-aqua/40">
-                <div className="font-display text-4xl font-extrabold text-aqua">{p.n}</div>
-                <h3 className="mt-3.5 text-[1.26rem] font-bold">{p.title}</h3>
-                <ul className="mt-4 space-y-3">
-                  {p.points.map((pt, j) => (
-                    <li key={j} className="flex gap-3 text-[0.98rem] text-ink/80">
-                      <Check />
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            ))}
+        {/* ===================== QUÉ HACEMOS (bento) ===================== */}
+        <section id="servicios" className="bg-paper-2 px-6 py-24 md:py-36">
+          <div className="mx-auto max-w-[1200px]">
+            <Reveal>
+              <SectionHead eyebrow={services.eyebrow} title={services.title} intro={services.intro} />
+            </Reveal>
+            <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-12">
+              {services.items.map((s, i) => (
+                <Reveal
+                  key={s.title}
+                  delay={i * 0.06}
+                  className={i < 2 ? "lg:col-span-6" : "lg:col-span-6"}
+                >
+                  <article className="group h-full rounded-[1.6rem] bg-surface p-8 shadow-[0_30px_60px_-34px_rgba(19,33,47,.35)] ring-1 ring-ink/[0.06] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1">
+                    <span className="font-display text-[0.95rem] font-semibold text-faint">0{i + 1}</span>
+                    <h3 className="mt-3 text-[1.45rem] font-medium">{s.title}</h3>
+                    <p className="mt-3 text-[1rem] leading-relaxed text-muted">{s.desc}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
           </div>
-        </Section>
+        </section>
 
-        {/* ---------------- SOCIEDADES ---------------- */}
-        <Section id="socios">
-          <Reveal>
-            <Panel className="grid items-stretch gap-8 p-8 md:p-10 lg:grid-cols-[.82fr_1.18fr]">
-              <aside className="relative flex min-h-[360px] items-end overflow-hidden rounded-2xl border border-white/10 p-8">
-                <Image src="/assets/img/fleet.jpg" alt="Flota comercial de pesca" fill sizes="(max-width:1024px) 100vw, 35vw" className="object-cover" />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,23,41,.5)_0%,rgba(11,23,41,.6)_50%,rgba(11,23,41,.92)_100%)]" />
-                <div className="relative">
-                  <Eyebrow>{societies.eyebrow}</Eyebrow>
-                  <h2 className="mt-4 text-[clamp(1.6rem,2.4vw,2.1rem)] font-bold">{societies.title}</h2>
-                  <p className="mt-3 max-w-[340px] text-ink/80">{societies.intro}</p>
-                  <PadantalLogo withWordmark={false} className="mt-6 text-ink/90 [&_svg]:h-11" />
+        {/* ===================== 3 PILARES ===================== */}
+        <section id="pilares" className="px-6 py-24 md:py-36">
+          <div className="mx-auto max-w-[1200px]">
+            <Reveal>
+              <SectionHead eyebrow={pillars.eyebrow} title={pillars.title} intro={pillars.intro} center />
+            </Reveal>
+            <div className="mt-14 grid gap-5 lg:grid-cols-3">
+              {pillars.items.map((p, i) => (
+                <Reveal key={p.n} delay={i * 0.08}>
+                  <div className="bezel h-full">
+                    <div className="bezel-core h-full p-8">
+                      <div className="font-display text-[2.6rem] font-medium leading-none text-ocean/90">{p.n}</div>
+                      <h3 className="mt-4 text-[1.35rem] font-medium">{p.title}</h3>
+                      <ul className="mt-5 space-y-3">
+                        {p.points.map((pt, j) => (
+                          <li key={j} className="flex gap-3 text-[0.98rem] leading-relaxed text-muted">
+                            <Check />
+                            <span>{pt}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===================== SOCIEDADES ===================== */}
+        <section id="socios" className="bg-paper-2 px-6 py-24 md:py-36">
+          <div className="mx-auto max-w-[1200px]">
+            <Reveal>
+              <SectionHead eyebrow={societies.eyebrow} title={societies.title} intro={societies.intro} />
+            </Reveal>
+            <div className="mt-14 grid gap-6 lg:grid-cols-[.8fr_1.2fr]">
+              <Reveal className="bezel">
+                <div className="bezel-core relative flex min-h-[340px] items-end overflow-hidden p-8">
+                  <Image src="/assets/img/fleet.jpg" alt="Flota comercial de pesca" fill sizes="(max-width:1024px) 100vw, 32vw" className="object-cover" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_30%,rgba(14,27,41,.9)_100%)]" />
+                  <PadantalLogo withWordmark={false} className="relative text-white/95 [&_svg]:h-12" />
                 </div>
-              </aside>
+              </Reveal>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-                {societies.logos.map((l) => (
-                  <figure key={l.alt} className="flex flex-col items-center justify-center gap-3 rounded-2xl bg-white px-5 pb-4 pt-6">
-                    <span className="relative flex h-14 w-[78%] items-center justify-center">
-                      <Image src={l.src} alt={l.alt} width={170} height={56} style={{ width: "auto", height: "auto" }} className="max-h-14 max-w-[78%] object-contain" />
-                    </span>
-                    <figcaption className="text-center font-display text-[0.78rem] font-medium text-slate-500">{l.caption}</figcaption>
-                  </figure>
+                {societies.logos.map((l, i) => (
+                  <Reveal key={l.alt} delay={i * 0.05} className="h-full">
+                    <figure className="flex h-full flex-col items-center justify-center gap-3 rounded-[1.4rem] bg-surface px-5 pb-4 pt-6 shadow-[0_24px_50px_-34px_rgba(19,33,47,.4)] ring-1 ring-ink/[0.05]">
+                      <span className="relative flex h-14 items-center justify-center">
+                        <Image src={l.src} alt={l.alt} width={170} height={56} style={{ width: "auto", height: "auto" }} className="max-h-14 max-w-[150px] object-contain" />
+                      </span>
+                      <figcaption className="text-center text-[0.74rem] font-medium tracking-wide text-faint">{l.caption}</figcaption>
+                    </figure>
+                  </Reveal>
                 ))}
               </div>
-            </Panel>
-          </Reveal>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {societies.orps.map((o) => (
-              <div key={o.b} className="rounded-xl border border-white/10 bg-navy-900/55 p-5 text-center backdrop-blur-md">
-                <b className="block font-display text-[1.12rem] text-aqua">{o.b}</b>
-                <span className="text-[0.84rem] text-ink/65">{o.s}</span>
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* ---------------- CASOS DE ÉXITO ---------------- */}
-        <Section id="casos">
-          <Reveal>
-            <SectionHead eyebrow={cases.eyebrow} title={cases.title} intro={cases.intro} center />
-          </Reveal>
-          <div className="mt-12 space-y-6">
-            {cases.items.map((c) => (
-              <Reveal key={c.title} className="overflow-hidden rounded-3xl border border-white/10 bg-navy-900/55 backdrop-blur-md">
-                <div className="grid md:grid-cols-[300px_1fr]">
-                  <div className="relative flex flex-col justify-between gap-6 overflow-hidden p-8">
-                    <Image src={c.image} alt={c.title} fill sizes="300px" className="object-cover" />
-                    <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(8,18,33,.72)_0%,rgba(8,18,33,.82)_60%,rgba(8,18,33,.93)_100%)]" />
-                    <span className="relative w-max rounded-full border border-aqua/30 bg-aqua/10 px-3.5 py-1.5 font-display text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-aqua">
-                      {c.badge}
-                    </span>
-                    <div className="relative">
-                      <h3 className="text-[1.3rem] font-bold">{c.title}</h3>
-                      <p className="mt-3 text-[0.9rem] text-ink/70">{c.location}</p>
-                    </div>
-                  </div>
-                  <div className="p-8">
-                    <p className="text-[1.02rem] text-ink/85">{c.lead}</p>
-                    <ul className="mb-6 mt-5 space-y-3">
-                      {c.points.map((pt, i) => (
-                        <li key={i} className="flex gap-3 text-[0.98rem] text-ink/80">
-                          <Check />
-                          <span>{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="flex items-center gap-5 rounded-2xl border border-aqua/20 bg-aqua/10 px-6 py-4">
-                      <span className="font-display text-[2.1rem] font-extrabold leading-none text-aqua">{c.result.big}</span>
-                      <p className="text-[0.98rem] font-medium text-ink/90">{c.result.text}</p>
-                    </div>
-                  </div>
+            </div>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {societies.orps.map((o) => (
+                <div key={o.b} className="rounded-2xl bg-surface px-5 py-4 text-center ring-1 ring-ink/[0.06]">
+                  <b className="block font-display text-[1.1rem] font-semibold text-ocean">{o.b}</b>
+                  <span className="text-[0.82rem] text-muted">{o.s}</span>
                 </div>
-              </Reveal>
-            ))}
+              ))}
+            </div>
           </div>
-        </Section>
+        </section>
 
-        {/* ---------------- CONCLUSIÓN / CONTACTO (clímax: la captura) ---------------- */}
-        <Section id="contacto">
-          <Reveal>
-            <Panel className="mx-auto max-w-[820px] p-10 text-center md:p-14">
-              <Eyebrow center>{conclusion.eyebrow}</Eyebrow>
-              <h2 className="mt-5 text-[clamp(2rem,4.4vw,3.2rem)] font-extrabold">
-                {conclusion.titleLead} <span className="text-aqua">{conclusion.titleAccent}</span>.
-              </h2>
-              <p className="mt-6 text-[1.15rem] text-ink/85">{conclusion.lead}</p>
-              <div className="mt-10 flex flex-wrap justify-center gap-8 text-left">
-                {conclusion.duo.map((d) => (
-                  <div key={d.term} className="max-w-[260px]">
-                    <b className="font-display text-aqua">{d.term}</b>
-                    <p className="mt-1 text-[0.96rem] text-ink/70">{d.desc}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-11 flex flex-wrap justify-center gap-3.5">
-                <a href={`mailto:${contact.email}`} className="btn-primary">
-                  Contactar con Padantal
-                  <Arrow />
-                </a>
-                <a href="#inicio" className="btn-ghost">Volver al inicio</a>
-              </div>
-            </Panel>
+        {/* ===================== CASOS DE ÉXITO ===================== */}
+        <section id="casos" className="px-6 py-24 md:py-36">
+          <div className="mx-auto max-w-[1200px]">
+            <Reveal>
+              <SectionHead eyebrow={cases.eyebrow} title={cases.title} intro={cases.intro} center />
+            </Reveal>
+            <div className="mt-16 space-y-20 md:space-y-28">
+              {cases.items.map((c, i) => (
+                <Reveal key={c.title}>
+                  <article className={`grid items-center gap-10 lg:grid-cols-2 ${i % 2 ? "lg:[&>*:first-child]:order-2" : ""}`}>
+                    <div className="bezel">
+                      <div className="bezel-core relative aspect-[4/3] overflow-hidden">
+                        <Image src={c.image} alt={c.title} fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
+                      </div>
+                    </div>
+                    <div>
+                      <span className="eyebrow">{c.badge}</span>
+                      <h3 className="mt-4 text-[clamp(1.6rem,3vw,2.4rem)] font-medium">{c.title}</h3>
+                      <p className="mt-2 text-[0.92rem] font-medium uppercase tracking-[0.12em] text-faint">{c.location}</p>
+                      <p className="mt-5 text-[1.05rem] leading-relaxed text-muted">{c.lead}</p>
+                      <ul className="mt-5 space-y-3">
+                        {c.points.map((pt, j) => (
+                          <li key={j} className="flex gap-3 text-[0.98rem] leading-relaxed text-muted">
+                            <Check />
+                            <span>{pt}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-7 flex items-center gap-5 rounded-2xl bg-ink px-6 py-5 text-white">
+                        <span className="font-display text-[2.4rem] font-medium leading-none text-[#7fd0f0]">{c.result.big}</span>
+                        <p className="text-[0.98rem] leading-snug text-white/85">{c.result.text}</p>
+                      </div>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===================== CONCLUSIÓN / CTA (sección oscura) ===================== */}
+        <section id="contacto" className="on-dark relative px-6 py-28 md:py-40">
+          <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_75%_0%,#14283a,#0e1b29_60%)]" />
+          <Reveal className="relative mx-auto max-w-[860px] text-center">
+            <span className="eyebrow">{conclusion.eyebrow}</span>
+            <h2 className="mt-6 text-[clamp(2.2rem,5vw,3.8rem)] font-medium text-white">
+              {conclusion.titleLead}{" "}
+              <span className="italic text-[#7fd0f0]">{conclusion.titleAccent}</span>.
+            </h2>
+            <p className="mx-auto mt-7 max-w-[640px] text-[1.15rem] leading-relaxed text-white/75">
+              {conclusion.lead}
+            </p>
+            <div className="mx-auto mt-10 flex max-w-[640px] flex-wrap justify-center gap-x-12 gap-y-6 text-left">
+              {conclusion.duo.map((d) => (
+                <div key={d.term} className="max-w-[260px]">
+                  <b className="font-display text-[1.2rem] font-semibold text-[#7fd0f0]">{d.term}</b>
+                  <p className="mt-1 text-[0.96rem] text-white/70">{d.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-12 flex flex-wrap justify-center gap-3">
+              <a href={`mailto:${contact.email}`} className="btn btn-primary">
+                Contactar con Padantal
+                <span className="ic"><Arrow /></span>
+              </a>
+              <a href="#inicio" className="btn btn-ghost">Volver al inicio</a>
+            </div>
           </Reveal>
-        </Section>
+        </section>
       </main>
 
-      <footer className="relative">
-        <div className="mx-auto flex max-w-[1180px] flex-wrap items-center justify-between gap-4 px-6 py-10 text-ink/60">
+      <footer className="bg-paper px-6 py-12">
+        <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-4 border-t border-ink/10 pt-8 text-faint">
           <a href="#inicio" className="text-ink">
             <PadantalLogo />
           </a>
@@ -249,65 +276,29 @@ export default function Home() {
   );
 }
 
-/* -------------------- Helpers de UI -------------------- */
-
-function Section({ id, children }: { id: string; children: React.ReactNode }) {
-  return (
-    <section id={id} className="relative py-24 md:py-32">
-      <div className="mx-auto max-w-[1180px] px-6">{children}</div>
-    </section>
-  );
-}
-
-function Panel({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <div className={`rounded-3xl border border-white/10 bg-navy-900/55 shadow-2xl shadow-black/40 backdrop-blur-md ${className}`}>
-      {children}
-    </div>
-  );
-}
-
-function Eyebrow({ children, center }: { children: React.ReactNode; center?: boolean }) {
-  return (
-    <span className={`inline-flex items-center gap-2 font-display text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-aqua ${center ? "justify-center" : ""}`}>
-      <span className="h-0.5 w-6 rounded bg-aqua" />
-      {children}
-    </span>
-  );
-}
+/* -------------------- Helpers -------------------- */
 
 function SectionHead({ eyebrow, title, intro, center }: { eyebrow: string; title: string; intro?: string; center?: boolean }) {
   return (
-    <div className={`max-w-[680px] ${center ? "mx-auto text-center" : ""}`}>
-      <Eyebrow center={center}>{eyebrow}</Eyebrow>
-      <h2 className="mt-4 text-[clamp(2rem,4vw,3rem)] font-bold drop-shadow-[0_2px_20px_rgba(0,0,0,.4)]">{title}</h2>
-      {intro && <p className="mt-4 text-[1.12rem] text-ink/75">{intro}</p>}
-    </div>
-  );
-}
-
-function ScrollCue() {
-  return (
-    <div className="pointer-events-none absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[0.72rem] uppercase tracking-[0.2em] text-ink/55">
-      <span className="relative h-9 w-[22px] rounded-full border-2 border-white/40">
-        <span className="absolute left-1/2 top-[7px] h-[7px] w-[3px] -translate-x-1/2 rounded bg-white motion-safe:animate-[scrollcue_1.6s_infinite]" />
-      </span>
-      Desciende
+    <div className={`max-w-[720px] ${center ? "mx-auto text-center" : ""}`}>
+      <span className="eyebrow">{eyebrow}</span>
+      <h2 className="mt-5 text-[clamp(2rem,4.2vw,3.4rem)] font-medium">{title}</h2>
+      {intro && <p className="mt-5 text-[1.12rem] leading-relaxed text-muted">{intro}</p>}
     </div>
   );
 }
 
 function Arrow() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} className="h-[18px] w-[18px]">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
       <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-function Check({ className = "text-aqua" }: { className?: string }) {
+function Check() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} className={`mt-1 h-[18px] w-[18px] shrink-0 ${className}`}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} className="mt-1 h-[17px] w-[17px] shrink-0 text-ocean">
       <path d="M5 12l5 5L20 6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
