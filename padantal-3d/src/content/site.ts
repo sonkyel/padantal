@@ -190,3 +190,37 @@ export const contact = {
     "Otro",
   ],
 };
+
+// Tarjetas KPI que flotan sobre el vídeo del hero (estilo dashboard premium).
+export const heroCards = [
+  { value: "13", unit: "buques", label: "Registrados y operativos", trend: "Omán · IOTC" },
+  { value: "100%", unit: "", label: "Cumplimiento ORP's", trend: "IOTC · ICCAT · CIAT" },
+  { value: "+30", unit: "años", label: "Experiencia internacional", trend: "+10 países" },
+];
+
+// Datos reales de la sociedad (Registro Mercantil de Madrid).
+export const company = {
+  eyebrow: "La compañía",
+  title: "Una sociedad española con alcance global",
+  intro:
+    "Padantal SL opera desde Madrid liderando proyectos pesqueros en distintos océanos. Detrás hay dirección con más de 30 años de experiencia internacional y familias con más de un siglo de tradición marítima.",
+  founder: {
+    name: "Daniel Vidal",
+    role: "Fundador y dirección",
+    note: "Lidera la estrategia y la ejecución de los proyectos de Padantal a escala internacional.",
+  },
+  facts: [
+    { k: "Sede", v: "Madrid, España" },
+    { k: "Forma jurídica", v: "Sociedad Limitada (SL)" },
+    { k: "Actividad", v: "Desarrollo y operación pesquera internacional" },
+    { k: "Alcance", v: "Proyectos en +10 países" },
+  ],
+};
+
+// Pie legal con datos del Registro Mercantil.
+export const legal = {
+  name: "Padantal SL",
+  nif: "B-55482418",
+  address: "C/ Fernando VI 17, 1.º Izq., 28004 Madrid, España",
+  registry: "Inscrita en el Registro Mercantil de Madrid",
+};

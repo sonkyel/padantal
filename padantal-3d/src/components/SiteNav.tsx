@@ -16,12 +16,10 @@ export function SiteNav() {
   }, []);
 
   return (
-    <header className="fixed left-1/2 top-5 z-50 w-[calc(100%-2rem)] max-w-[1200px] -translate-x-1/2">
+    <header className="fixed left-1/2 top-5 z-50 w-[calc(100%-2rem)] max-w-[1280px] -translate-x-1/2">
       <div
         className={`flex items-center justify-between rounded-full py-2.5 pl-6 pr-2.5 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
-          scrolled
-            ? "bg-paper/80 shadow-[0_20px_50px_-24px_rgba(19,33,47,.4)] ring-1 ring-ink/10 backdrop-blur-xl"
-            : "bg-transparent"
+          scrolled ? "glass-strong" : "border border-white/10 bg-white/[0.04] backdrop-blur-md"
         }`}
       >
         <a href="#inicio" aria-label="Padantal SL inicio" className="text-ink">
@@ -33,16 +31,14 @@ export function SiteNav() {
             <a
               key={l.href}
               href={l.href}
-              className="rounded-full px-4 py-2 text-[0.92rem] font-medium text-muted transition-colors duration-300 hover:bg-ink/5 hover:text-ink"
+              className="rounded-full px-4 py-2 text-[0.92rem] font-medium text-white/75 transition-colors duration-300 hover:bg-white/10 hover:text-white"
             >
               {l.label}
             </a>
           ))}
           <a href={nav.cta.href} className="btn btn-primary ml-2 !py-2 !pl-5 text-[0.9rem]">
             {nav.cta.label}
-            <span className="ic">
-              <Arrow />
-            </span>
+            <span className="ic"><Arrow /></span>
           </a>
         </nav>
 
@@ -60,7 +56,7 @@ export function SiteNav() {
 
       {/* Overlay móvil */}
       <div
-        className={`mt-2 overflow-hidden rounded-3xl bg-paper/90 ring-1 ring-ink/10 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] md:hidden ${
+        className={`mt-2 overflow-hidden rounded-3xl glass-strong transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] md:hidden ${
           open ? "max-h-[420px] opacity-100" : "pointer-events-none max-h-0 opacity-0"
         }`}
       >
@@ -71,7 +67,7 @@ export function SiteNav() {
               href={l.href}
               onClick={() => setOpen(false)}
               style={{ transitionDelay: open ? `${80 + i * 50}ms` : "0ms" }}
-              className={`rounded-2xl px-4 py-3 text-ink transition-all duration-500 hover:bg-ink/5 ${open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}
+              className={`rounded-2xl px-4 py-3 text-white/90 transition-all duration-500 hover:bg-white/10 ${open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}
             >
               {l.label}
             </a>
