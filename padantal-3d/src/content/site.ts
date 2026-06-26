@@ -26,6 +26,11 @@ const es = {
       { value: "13", unit: "buques", label: "registrados y operativos" },
     ],
   },
+  approach: {
+    eyebrow: "Nuestro enfoque",
+    title: "Todo lo que aportamos, en un vistazo",
+    tabs: { servicios: "Qué hacemos", cadena: "Cadena de valor", sostenibilidad: "Sostenibilidad", calidad: "Calidad & pilares" },
+  },
   chainHead: { eyebrow: "Cadena de valor", title: "De la captura a la exportación", intro: "Operamos en todos los eslabones del sector pesquero industrial." },
   chain: [
     { t: "Captura & operación", d: "Activación y gestión de flotas industriales." },
@@ -200,6 +205,11 @@ const en: typeof es = {
       { value: "+10", unit: "countries", label: "with executed projects" },
       { value: "13", unit: "vessels", label: "registered and operational" },
     ],
+  },
+  approach: {
+    eyebrow: "Our approach",
+    title: "Everything we deliver, at a glance",
+    tabs: { servicios: "What we do", cadena: "Value chain", sostenibilidad: "Sustainability", calidad: "Quality & pillars" },
   },
   chainHead: { eyebrow: "Value chain", title: "From catch to export", intro: "We operate across every link of the industrial fishing sector." },
   chain: [

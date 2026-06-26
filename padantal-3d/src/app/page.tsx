@@ -7,6 +7,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { Reveal } from "@/components/Reveal";
 import { HeroScrollVideo } from "@/components/HeroScrollVideo";
 import OperationsGlobe3D from "@/components/OperationsGlobe3D";
+import { ApproachTabs } from "@/components/ApproachTabs";
 import { ContactForm } from "@/components/ContactForm";
 import { useT } from "@/i18n/lang";
 
@@ -36,25 +37,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Cadena de valor */}
-        <Section id="cadena">
-          <Reveal><SectionHead eyebrow={t.chainHead.eyebrow} title={t.chainHead.title} intro={t.chainHead.intro} /></Reveal>
-          <div className="relative mt-14">
-            <div className="node-line absolute left-0 right-0 top-7 hidden md:block" />
-            <div className="grid gap-8 md:grid-cols-4">
-              {t.chain.map((c, i) => (
-                <Reveal key={c.t} delay={i * 0.08} className="relative text-center md:text-left">
-                  <div className="relative z-10 mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-cyan/40 bg-base md:mx-0">
-                    <span className="font-display text-[1.05rem] font-semibold text-cyan-bright">{i + 1}</span>
-                  </div>
-                  <h3 className="mt-5 text-[1.15rem] font-semibold">{c.t}</h3>
-                  <p className="mt-2 text-[0.95rem] text-muted">{c.d}</p>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </Section>
-
         {/* Quiénes somos */}
         <Section id="nosotros" tint>
           <div className="grid items-center gap-14 lg:grid-cols-2">
@@ -74,19 +56,8 @@ export default function Home() {
           </div>
         </Section>
 
-        {/* Qué hacemos */}
-        <Section id="servicios">
-          <Reveal><SectionHead eyebrow={t.services.eyebrow} title={t.services.title} intro={t.services.intro} /></Reveal>
-          <div className="mt-14 grid gap-5 md:grid-cols-2">
-            {t.services.items.map((s, i) => (
-              <Reveal key={s.title} delay={i * 0.06} className="group h-full rounded-2xl glass p-8 transition-[transform,border-color] duration-400 hover:-translate-y-1 hover:border-cyan/40">
-                <span className="font-display text-[0.95rem] font-semibold text-cyan">0{i + 1}</span>
-                <h3 className="mt-3 text-[1.4rem] font-semibold">{s.title}</h3>
-                <p className="mt-3 text-[1rem] text-muted">{s.desc}</p>
-              </Reveal>
-            ))}
-          </div>
-        </Section>
+        {/* Nuestro enfoque — módulo con pestañas */}
+        <ApproachTabs />
 
         {/* Operación global (globo 3D) */}
         <Section id="operacion" tint>
@@ -100,53 +71,6 @@ export default function Home() {
               </div>
             </Reveal>
             <Reveal delay={0.1}><OperationsGlobe3D /></Reveal>
-          </div>
-        </Section>
-
-        {/* Sostenibilidad & cumplimiento */}
-        <Section id="sostenibilidad">
-          <Reveal><SectionHead eyebrow={t.sustainability.eyebrow} title={t.sustainability.title} intro={t.sustainability.intro} center /></Reveal>
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {t.sustainability.items.map((it, i) => (
-              <Reveal key={it.title} delay={i * 0.06} className="glass h-full rounded-2xl p-7">
-                <Leaf />
-                <h3 className="mt-4 text-[1.15rem] font-semibold">{it.title}</h3>
-                <p className="mt-2 text-[0.95rem] text-muted">{it.desc}</p>
-              </Reveal>
-            ))}
-          </div>
-        </Section>
-
-        {/* Calidad & estándares */}
-        <Section id="calidad" tint>
-          <div className="grid items-center gap-12 lg:grid-cols-[.9fr_1.1fr]">
-            <Reveal>
-              <span className="eyebrow">{t.quality.eyebrow}</span>
-              <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.9rem)] font-semibold">{t.quality.title}</h2>
-              <p className="mt-6 max-w-[46ch] text-[1.02rem] text-muted">{t.quality.intro}</p>
-            </Reveal>
-            <Reveal delay={0.1} className="space-y-4">
-              {t.quality.items.map((q) => (
-                <div key={q.k} className="glass rounded-2xl p-6">
-                  <div className="text-[0.74rem] uppercase tracking-[0.14em] text-cyan">{q.k}</div>
-                  <div className="mt-1.5 text-[1.05rem] text-ink">{q.v}</div>
-                </div>
-              ))}
-            </Reveal>
-          </div>
-        </Section>
-
-        {/* 3 pilares */}
-        <Section id="pilares">
-          <Reveal><SectionHead title={t.pillars.title} intro={t.pillars.intro} center /></Reveal>
-          <div className="mt-14 grid gap-5 lg:grid-cols-3">
-            {t.pillars.items.map((p, i) => (
-              <Reveal key={p.n} delay={i * 0.08} className="glass h-full rounded-2xl p-8">
-                <div className="font-display text-[2.4rem] font-semibold leading-none text-cyan-bright">{p.n}</div>
-                <h3 className="mt-4 text-[1.3rem] font-semibold">{p.title}</h3>
-                <ul className="mt-5 space-y-3">{p.points.map((pt, j) => <li key={j} className="flex gap-3 text-[0.96rem] text-muted"><Check /><span>{pt}</span></li>)}</ul>
-              </Reveal>
-            ))}
           </div>
         </Section>
 
@@ -287,7 +211,4 @@ function Check() {
 }
 function Dot() {
   return <span className="h-2 w-2 shrink-0 rounded-full bg-cyan" />;
-}
-function Leaf() {
-  return (<span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan/40 text-cyan-bright"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} className="h-5 w-5"><path d="M5 21c0-7 4-12 14-13 0 9-5 13-11 13-1.5 0-3-.4-3-.4M7 19c2-4 5-6 9-7" strokeLinecap="round" strokeLinejoin="round" /></svg></span>);
 }
