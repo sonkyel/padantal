@@ -1,226 +1,349 @@
-// Contenido único de la web de Padantal SL. Portado del sitio estático.
+// Contenido bilingüe (ES/EN) de Padantal SL.
 
-export const nav = {
-  links: [
-    { href: "#nosotros", label: "Quiénes somos" },
-    { href: "#servicios", label: "Qué hacemos" },
-    { href: "#socios", label: "Sociedades" },
-    { href: "#casos", label: "Casos de éxito" },
-  ],
-  cta: { href: "#contacto", label: "Contactar" },
-};
+export type Locale = "es" | "en";
 
-export const hero = {
-  eyebrow: "Padantal SL · Sector pesquero global",
-  titleLead: "Construyendo la",
-  titleAccent: "pesca del futuro",
-  lead: "Socio estratégico con capacidad real de ejecución. Combinamos know-how técnico y know-who internacional para liderar, activar y transformar proyectos pesqueros complejos a escala global.",
-  ctaPrimary: { href: "#contacto", label: "Hablemos de tu proyecto" },
-  ctaSecondary: { href: "#casos", label: "Ver casos de éxito" },
-  stats: [
-    { value: "+30", unit: "años", label: "de experiencia internacional" },
-    { value: "+100", unit: "años", label: "de tradición marítima familiar" },
-    { value: "+10", unit: "países", label: "con proyectos ejecutados" },
-    { value: "13", unit: "buques", label: "registrados y operativos" },
-  ],
-};
-
-export const about = {
-  eyebrow: "Quiénes somos",
-  title: "Un actor que el sector necesitaba",
-  paragraphs: [
-    "Padantal SL es una empresa fundada por directores con más de 30 años de experiencia internacional en el sector pesquero, procedentes de familias con más de 100 años de tradición marítima.",
-    "Nace para cubrir una necesidad clave: un actor capaz de combinar know-how técnico y know-who internacional, liderar proyectos complejos, activar flotas y acompañar a empresas y países en el desarrollo de su industria pesquera.",
-    "Operamos a escala global y trabajamos de forma directa con algunos de los actores más grandes e influyentes del sector. Gobiernos, grandes flotas y empresas líderes nos llaman para poner en marcha proyectos complejos por nuestra capacidad real de ejecución, red internacional y prestigio profesional.",
-  ],
-  know: [
-    { term: "Know-how", desc: "Conocimiento técnico profundo y probado." },
-    { term: "Know-who", desc: "Acceso directo a los actores clave del sector." },
-  ],
-};
-
-export const services = {
-  eyebrow: "Qué hacemos",
-  title: "Especialistas en proyectos pesqueros internacionales",
-  intro:
-    "Trabajamos con estándares internacionales y un enfoque técnico probado en cada fase del proyecto.",
-  items: [
-    {
-      title: "Desarrollo y operación de proyectos",
-      desc: "Diseño, estructuración y ejecución completa de proyectos pesqueros internacionales, de principio a fin.",
-    },
-    {
-      title: "Activación de capacidad de acarreo",
-      desc: "Gestión ante ORP's (CIAT, ICCAT, IOTC) para activar capacidad de acarreo de forma inmediata y conforme.",
-    },
-    {
-      title: "Modernización de flotas",
-      desc: "Renovación de flotas y optimización de estructuras operativas para maximizar el rendimiento.",
-    },
-    {
-      title: "Integración industrial",
-      desc: "Flota, planta, valor añadido y exportación integrados bajo un único marco operativo y legal.",
-    },
-  ],
-};
-
-export const pillars = {
-  eyebrow: "3 pilares clave",
-  title: "La base de cada proyecto",
-  intro: "Tres fortalezas que nos permiten aportar impacto real desde el primer día.",
-  items: [
-    {
-      n: "01",
-      title: "Experiencia global & ejecución probada",
-      points: [
-        "Más de 30 años de experiencia internacional.",
-        "Proyectos en más de 10 países.",
-        "Colaboración directa con los mayores actores del sector.",
-      ],
-    },
-    {
-      n: "02",
-      title: "Acceso, red internacional & cumplimiento regulatorio",
-      points: [
-        "Dominio de normativas (ORP's) y gestión de permisos, abanderamientos y chartering internacional.",
-        "Know-who estratégico: acceso directo a armadores, gobiernos, plantas, operadores y mercados.",
-        "Integramos barcos de distintos océanos bajo un marco legal y operativo impecable.",
-      ],
-    },
-    {
-      n: "03",
-      title: "Soluciones integrales & valor para los países",
-      points: [
-        "Diseño de planes nacionales de pesca.",
-        "Activación inmediata de capacidad de acarreo (3.000–6.000 m³).",
-        "Un socio capaz de aportar impacto real desde el primer día.",
-      ],
-    },
-  ],
-};
-
-export const societies = {
-  eyebrow: "Participación activa",
-  title: "Sociedades con participación activa",
-  intro:
-    "Trabajamos de forma directa y con presencia accionarial junto a algunos de los mayores grupos atuneros, conserveras, flotas y gobiernos del mundo.",
-  logos: [
-    { src: "/assets/logos/sapmer.png", alt: "SAPMER — Tuna Division", caption: "SAPMER · Tuna Division" },
-    { src: "/assets/logos/pescanova.jpg", alt: "Grupo Nueva Pescanova", caption: "Grupo Nueva Pescanova" },
-    { src: "/assets/logos/ricardo-fuentes-dark.svg", alt: "Grupo Ricardo Fuentes", caption: "Grupo Ricardo Fuentes" },
-    { src: "/assets/logos/trimarine.png", alt: "Tri Marine", caption: "Tri Marine" },
-    { src: "/assets/logos/frinsa.png", alt: "Frinsa", caption: "Frinsa" },
-    { src: "/assets/logos/panama.svg", alt: "República de Panamá — Gobierno Nacional", caption: "República de Panamá · Gobierno Nacional" },
-  ],
-  orps: [
-    { b: "IOTC", s: "Indian Ocean Tuna Commission" },
-    { b: "ICCAT", s: "Atún del Atlántico" },
-    { b: "CIAT", s: "Pacífico Oriental" },
-    { b: "Bareboat charter", s: "Abanderamientos & chartering internacional" },
-  ],
-};
-
-export const cases = {
-  eyebrow: "Casos de éxito",
-  title: "Resultados, no recomendaciones",
-  intro: "No fuimos consultivos: diseñamos, estructuramos y ejecutamos la operación completa.",
-  items: [
-    {
-      badge: "Atún industrial",
-      title: "Desarrollo del sector atunero industrial",
-      location: "Omán · Océano Índico",
-      image: "/assets/img/seiner.jpg",
-      lead: "Padantal lideró de forma directa la creación y puesta en marcha de la industria atunera moderna de Omán, mediante inversión y colaboración con Ranaq Al Salam LLC, Tuna Development LLC y Rawanq Group.",
-      points: [
-        "Diseño del plan de pesca industrial de atún con cerco para el Índico.",
-        "Estrategia legal para el desarrollo de cuota de yellowfin, alineada con la IOTC.",
-        "Constitución de sociedades omaníes y registro de buques bajo pabellón omaní (bareboat charter, adquisiciones y nuevas construcciones).",
-      ],
-      result: { big: "6", text: "buques cerqueros atuneros registrados y operativos bajo bandera omaní, en pleno cumplimiento de la IOTC." },
-    },
-    {
-      badge: "Pequeños pelágicos",
-      title: "Desarrollo de la flota industrial pelágica",
-      location: "Omán",
-      image: "/assets/img/trawler.jpg",
-      lead: "Padantal lideró la expansión del sector pelágico de Omán, diseñando un plan completo para especies como el jurel y la caballa.",
-      points: [
-        "Diseño del modelo de flota y operación para pequeños pelágicos.",
-        "Asesoría técnica y estructuración operativa para empresas locales.",
-        "Incorporación de buques arrastreros pelágicos al sistema omaní.",
-      ],
-      result: { big: "7", text: "buques arrastreros pelágicos operan hoy bajo bandera de Omán gracias al proyecto desarrollado por Padantal." },
-    },
-    {
-      badge: "Atún rojo · BFT",
-      title: "Desarrollo estratégico con Grupo Ricardo Fuentes",
-      location: "Marruecos",
-      image: "/assets/img/almadraba.jpg",
-      lead: "Padantal participa activamente con Grupo Ricardo Fuentes, uno de los mayores grupos atuneros del mundo, en el desarrollo del atún rojo.",
-      points: [
-        "Obtención y gestión de cuotas de atún rojo (BFT) para almadrabas de Marruecos.",
-        "Coordinación regulatoria y operativa para maximizar el rendimiento del recurso.",
-        "Optimización logística y mejora de procesos extractivos.",
-      ],
-      result: { big: "★", text: "Colaboración activa con uno de los mayores grupos atuneros a nivel mundial." },
-    },
-  ],
-};
-
-export const conclusion = {
-  eyebrow: "Conclusión",
-  titleLead: "No somos una consultora. Somos un",
-  titleAccent: "socio estratégico",
-  lead: "Tenemos capacidad real de transformar sectores pesqueros completos: experiencia internacional, relaciones con los mayores actores del mundo, conocimiento técnico profundo y una trayectoria demostrada.",
-  duo: [
-    { term: "Know-how", desc: "Para diseñar, ejecutar y operar proyectos complejos." },
-    { term: "Know-who", desc: "Para movilizar flota, inversión, tecnología y talento desde el primer día." },
-  ],
-};
-
-export const contact = {
-  email: "info@padantal.com",
-  coverage: "Operación a escala global",
-  response: "En menos de 48 horas laborables",
-  interests: [
-    "Desarrollo y operación de proyectos",
-    "Activación de capacidad de acarreo (ORP's)",
-    "Modernización de flotas",
-    "Integración industrial y exportación",
-    "Otro",
-  ],
-};
-
-// Tarjetas KPI que flotan sobre el vídeo del hero (estilo dashboard premium).
-export const heroCards = [
-  { value: "13", unit: "buques", label: "Registrados y operativos", trend: "Omán · IOTC" },
-  { value: "100%", unit: "", label: "Cumplimiento ORP's", trend: "IOTC · ICCAT · CIAT" },
-  { value: "+30", unit: "años", label: "Experiencia internacional", trend: "+10 países" },
-];
-
-// Datos reales de la sociedad (Registro Mercantil de Madrid).
-export const company = {
-  eyebrow: "La compañía",
-  title: "Una sociedad española con alcance global",
-  intro:
-    "Padantal SL opera desde Madrid liderando proyectos pesqueros en distintos océanos. Detrás hay dirección con más de 30 años de experiencia internacional y familias con más de un siglo de tradición marítima.",
-  founder: {
-    name: "Daniel Vidal",
-    role: "Fundador y dirección",
-    note: "Lidera la estrategia y la ejecución de los proyectos de Padantal a escala internacional.",
+const es = {
+  nav: {
+    links: [
+      { href: "#nosotros", label: "Quiénes somos" },
+      { href: "#servicios", label: "Qué hacemos" },
+      { href: "#sostenibilidad", label: "Sostenibilidad" },
+      { href: "#casos", label: "Casos de éxito" },
+    ],
+    cta: { href: "#contacto", label: "Contactar" },
   },
-  facts: [
-    { k: "Sede", v: "Madrid, España" },
-    { k: "Forma jurídica", v: "Sociedad Limitada (SL)" },
-    { k: "Actividad", v: "Desarrollo y operación pesquera internacional" },
-    { k: "Alcance", v: "Proyectos en +10 países" },
+  hero: {
+    eyebrow: "Padantal SL · Sector pesquero global",
+    titleLead: "Construyendo la",
+    titleAccent: "pesca del futuro",
+    lead: "Socio estratégico con capacidad real de ejecución. Combinamos know-how técnico y know-who internacional para liderar, activar y transformar proyectos pesqueros complejos a escala global.",
+    ctaPrimary: { href: "#contacto", label: "Hablemos de tu proyecto" },
+    ctaSecondary: { href: "#casos", label: "Ver casos de éxito" },
+    stats: [
+      { value: "+30", unit: "años", label: "de experiencia internacional" },
+      { value: "+100", unit: "años", label: "de tradición marítima familiar" },
+      { value: "+10", unit: "países", label: "con proyectos ejecutados" },
+      { value: "13", unit: "buques", label: "registrados y operativos" },
+    ],
+  },
+  chainHead: { eyebrow: "Cadena de valor", title: "De la captura a la exportación", intro: "Operamos en todos los eslabones del sector pesquero industrial." },
+  chain: [
+    { t: "Captura & operación", d: "Activación y gestión de flotas industriales." },
+    { t: "Procesado & planta", d: "Integración de plantas y conserveras." },
+    { t: "Logística", d: "Optimización de procesos y transporte." },
+    { t: "Valor añadido & exportación", d: "Acceso directo a mercados internacionales." },
   ],
+  about: {
+    eyebrow: "Quiénes somos",
+    title: "Un actor que el sector necesitaba",
+    paragraphs: [
+      "Padantal SL es una empresa fundada por directores con más de 30 años de experiencia internacional en el sector pesquero, procedentes de familias con más de 100 años de tradición marítima.",
+      "Nace para cubrir una necesidad clave: un actor capaz de combinar know-how técnico y know-who internacional, liderar proyectos complejos, activar flotas y acompañar a empresas y países en el desarrollo de su industria pesquera.",
+      "Operamos a escala global y trabajamos de forma directa con algunos de los actores más grandes e influyentes del sector. Gobiernos, grandes flotas y empresas líderes nos llaman para poner en marcha proyectos complejos por nuestra capacidad real de ejecución, red internacional y prestigio profesional.",
+    ],
+    know: [
+      { term: "Know-how", desc: "Conocimiento técnico profundo y probado." },
+      { term: "Know-who", desc: "Acceso directo a los actores clave del sector." },
+    ],
+  },
+  services: {
+    eyebrow: "Qué hacemos",
+    title: "Especialistas en proyectos pesqueros internacionales",
+    intro: "Trabajamos con estándares internacionales y un enfoque técnico probado en cada fase del proyecto.",
+    items: [
+      { title: "Desarrollo y operación de proyectos", desc: "Diseño, estructuración y ejecución completa de proyectos pesqueros internacionales, de principio a fin." },
+      { title: "Activación de capacidad de acarreo", desc: "Gestión ante ORP's (CIAT, ICCAT, IOTC) para activar capacidad de acarreo de forma inmediata y conforme." },
+      { title: "Modernización de flotas", desc: "Renovación de flotas y optimización de estructuras operativas para maximizar el rendimiento." },
+      { title: "Integración industrial", desc: "Flota, planta, valor añadido y exportación integrados bajo un único marco operativo y legal." },
+    ],
+  },
+  operations: {
+    eyebrow: "Operación global",
+    title: "Proyectos en más de 10 países",
+    intro: "Integramos barcos de distintos océanos bajo un marco legal y operativo impecable, con acceso directo a armadores, gobiernos, plantas y mercados.",
+    regions: ["Omán", "Marruecos", "España", "Océano Índico", "Atlántico"],
+  },
+  sustainability: {
+    eyebrow: "Sostenibilidad & cumplimiento",
+    title: "Pesca responsable, plenamente regulada",
+    intro: "Operamos siempre dentro del marco legal internacional. La sostenibilidad del recurso y el cumplimiento normativo son la base de cada proyecto.",
+    items: [
+      { title: "Cuotas legales", desc: "Desarrollo y gestión de cuotas (yellowfin, BFT) plenamente alineadas con la normativa de las ORP's." },
+      { title: "Cumplimiento ORP's", desc: "Operación conforme ante IOTC, ICCAT y CIAT: permisos, abanderamientos y capacidad de acarreo." },
+      { title: "Trazabilidad", desc: "Estructuras legales y operativas transparentes, de la captura a la exportación." },
+      { title: "Recurso a largo plazo", desc: "Planes diseñados para un aprovechamiento responsable y duradero del recurso pesquero." },
+    ],
+  },
+  quality: {
+    eyebrow: "Calidad & estándares",
+    title: "Rigor técnico probado",
+    intro: "Cada operación se ejecuta con estándares internacionales y un enfoque técnico contrastado en más de una década de proyectos.",
+    items: [
+      { k: "Estándares internacionales", v: "Marcos operativos y legales conformes a la normativa global." },
+      { k: "Ejecución probada", v: "Diseño, estructuración y puesta en marcha de operaciones completas." },
+      { k: "Control operativo", v: "Optimización logística y mejora continua de procesos." },
+    ],
+  },
+  pillars: {
+    eyebrow: "3 pilares clave",
+    title: "La base de cada proyecto",
+    intro: "Tres fortalezas que nos permiten aportar impacto real desde el primer día.",
+    items: [
+      { n: "01", title: "Experiencia global & ejecución probada", points: ["Más de 30 años de experiencia internacional.", "Proyectos en más de 10 países.", "Colaboración directa con los mayores actores del sector."] },
+      { n: "02", title: "Acceso, red internacional & cumplimiento regulatorio", points: ["Dominio de normativas (ORP's) y gestión de permisos, abanderamientos y chartering internacional.", "Know-who estratégico: acceso directo a armadores, gobiernos, plantas, operadores y mercados.", "Integramos barcos de distintos océanos bajo un marco legal y operativo impecable."] },
+      { n: "03", title: "Soluciones integrales & valor para los países", points: ["Diseño de planes nacionales de pesca.", "Activación inmediata de capacidad de acarreo (3.000–6.000 m³).", "Un socio capaz de aportar impacto real desde el primer día."] },
+    ],
+  },
+  societies: {
+    eyebrow: "Participación activa",
+    title: "Sociedades con participación activa",
+    intro: "Trabajamos de forma directa y con presencia accionarial junto a algunos de los mayores grupos atuneros, conserveras, flotas y gobiernos del mundo.",
+    logos: [
+      { src: "/assets/logos/sapmer.png", alt: "SAPMER — Tuna Division", caption: "SAPMER · Tuna Division" },
+      { src: "/assets/logos/pescanova.jpg", alt: "Grupo Nueva Pescanova", caption: "Grupo Nueva Pescanova" },
+      { src: "/assets/logos/ricardo-fuentes-dark.svg", alt: "Grupo Ricardo Fuentes", caption: "Grupo Ricardo Fuentes" },
+      { src: "/assets/logos/trimarine.png", alt: "Tri Marine", caption: "Tri Marine" },
+      { src: "/assets/logos/frinsa.png", alt: "Frinsa", caption: "Frinsa" },
+      { src: "/assets/logos/panama.svg", alt: "República de Panamá — Gobierno Nacional", caption: "República de Panamá · Gobierno Nacional" },
+    ],
+    orps: [
+      { b: "IOTC", s: "Indian Ocean Tuna Commission" },
+      { b: "ICCAT", s: "Atún del Atlántico" },
+      { b: "CIAT", s: "Pacífico Oriental" },
+      { b: "Bareboat charter", s: "Abanderamientos & chartering internacional" },
+    ],
+  },
+  cases: {
+    eyebrow: "Casos de éxito",
+    title: "Resultados, no recomendaciones",
+    intro: "No fuimos consultivos: diseñamos, estructuramos y ejecutamos la operación completa.",
+    items: [
+      { badge: "Atún industrial", title: "Desarrollo del sector atunero industrial", location: "Omán · Océano Índico", image: "/assets/img/seiner.jpg", lead: "Padantal lideró de forma directa la creación y puesta en marcha de la industria atunera moderna de Omán, mediante inversión y colaboración con Ranaq Al Salam LLC, Tuna Development LLC y Rawanq Group.", points: ["Diseño del plan de pesca industrial de atún con cerco para el Índico.", "Estrategia legal para el desarrollo de cuota de yellowfin, alineada con la IOTC.", "Constitución de sociedades omaníes y registro de buques bajo pabellón omaní."], result: { big: "6", text: "buques cerqueros atuneros registrados y operativos bajo bandera omaní, en pleno cumplimiento de la IOTC." } },
+      { badge: "Pequeños pelágicos", title: "Desarrollo de la flota industrial pelágica", location: "Omán", image: "/assets/img/trawler.jpg", lead: "Padantal lideró la expansión del sector pelágico de Omán, diseñando un plan completo para especies como el jurel y la caballa.", points: ["Diseño del modelo de flota y operación para pequeños pelágicos.", "Asesoría técnica y estructuración operativa para empresas locales.", "Incorporación de buques arrastreros pelágicos al sistema omaní."], result: { big: "7", text: "buques arrastreros pelágicos operan hoy bajo bandera de Omán gracias al proyecto desarrollado por Padantal." } },
+      { badge: "Atún rojo · BFT", title: "Desarrollo estratégico con Grupo Ricardo Fuentes", location: "Marruecos", image: "/assets/img/almadraba.jpg", lead: "Padantal participa activamente con Grupo Ricardo Fuentes, uno de los mayores grupos atuneros del mundo, en el desarrollo del atún rojo.", points: ["Obtención y gestión de cuotas de atún rojo (BFT) para almadrabas de Marruecos.", "Coordinación regulatoria y operativa para maximizar el rendimiento del recurso.", "Optimización logística y mejora de procesos extractivos."], result: { big: "★", text: "Colaboración activa con uno de los mayores grupos atuneros a nivel mundial." } },
+    ],
+  },
+  company: {
+    eyebrow: "La compañía",
+    title: "Una sociedad española con alcance global",
+    intro: "Padantal SL opera desde Madrid liderando proyectos pesqueros en distintos océanos. Detrás hay dirección con más de 30 años de experiencia internacional y familias con más de un siglo de tradición marítima.",
+    founder: { name: "Daniel Vidal", role: "Fundador y dirección", note: "Lidera la estrategia y la ejecución de los proyectos de Padantal a escala internacional." },
+    facts: [
+      { k: "Sede", v: "Madrid, España" },
+      { k: "Forma jurídica", v: "Sociedad Limitada (SL)" },
+      { k: "Actividad", v: "Desarrollo y operación pesquera internacional" },
+      { k: "Alcance", v: "Proyectos en +10 países" },
+    ],
+    cta: "Hablar con Padantal",
+  },
+  conclusion: {
+    eyebrow: "Conclusión",
+    titleLead: "No somos una consultora. Somos un",
+    titleAccent: "socio estratégico",
+    lead: "Tenemos capacidad real de transformar sectores pesqueros completos: experiencia internacional, relaciones con los mayores actores del mundo, conocimiento técnico profundo y una trayectoria demostrada.",
+    duo: [
+      { term: "Know-how", desc: "Para diseñar, ejecutar y operar proyectos complejos." },
+      { term: "Know-who", desc: "Para movilizar flota, inversión, tecnología y talento desde el primer día." },
+    ],
+    backTop: "Volver al inicio",
+  },
+  contact: {
+    eyebrow: "Hablemos",
+    title: "Pongamos en marcha tu proyecto",
+    intro: "Cuéntanos qué necesitas y un director de Padantal se pondrá en contacto contigo.",
+    email: "info@padantal.com",
+    coverage: "Operación a escala global",
+    response: "Respuesta en menos de 48 horas laborables",
+    form: {
+      name: "Nombre y apellidos",
+      company: "Empresa / organismo",
+      emailLabel: "Correo electrónico",
+      country: "País",
+      interest: "Área de interés",
+      message: "Mensaje",
+      send: "Enviar mensaje",
+      placeholderName: "Tu nombre",
+      placeholderCompany: "Tu organización",
+      placeholderEmail: "nombre@empresa.com",
+      placeholderCountry: "País de operación",
+      placeholderMessage: "Cuéntanos brevemente tu proyecto o necesidad...",
+      interests: ["Desarrollo y operación de proyectos", "Activación de capacidad de acarreo (ORP's)", "Modernización de flotas", "Integración industrial y exportación", "Otro"],
+      ok: "¡Gracias! Hemos recibido tu mensaje y te responderemos pronto.",
+      err: "Por favor, completa tu nombre, un correo válido y un mensaje.",
+      priv: "Tus datos solo se utilizarán para responder a tu solicitud.",
+    },
+  },
+  footer: { nav: "Navegación", tagline: "Socio estratégico global del sector pesquero. Know-how técnico y know-who internacional para liderar, activar y transformar proyectos complejos.", rights: "Todos los derechos reservados." },
+  legal: { name: "Padantal SL", nif: "B-55482418", address: "C/ Fernando VI 17, 1.º Izq., 28004 Madrid, España", registry: "Inscrita en el Registro Mercantil de Madrid" },
 };
 
-// Pie legal con datos del Registro Mercantil.
-export const legal = {
-  name: "Padantal SL",
-  nif: "B-55482418",
-  address: "C/ Fernando VI 17, 1.º Izq., 28004 Madrid, España",
-  registry: "Inscrita en el Registro Mercantil de Madrid",
+const en: typeof es = {
+  nav: {
+    links: [
+      { href: "#nosotros", label: "About us" },
+      { href: "#servicios", label: "What we do" },
+      { href: "#sostenibilidad", label: "Sustainability" },
+      { href: "#casos", label: "Case studies" },
+    ],
+    cta: { href: "#contacto", label: "Contact" },
+  },
+  hero: {
+    eyebrow: "Padantal SL · Global fishing sector",
+    titleLead: "Building the",
+    titleAccent: "fishing of the future",
+    lead: "A strategic partner with real execution capacity. We combine technical know-how and international know-who to lead, activate and transform complex fishing projects on a global scale.",
+    ctaPrimary: { href: "#contacto", label: "Let's talk about your project" },
+    ctaSecondary: { href: "#casos", label: "View case studies" },
+    stats: [
+      { value: "+30", unit: "years", label: "of international experience" },
+      { value: "+100", unit: "years", label: "of family maritime tradition" },
+      { value: "+10", unit: "countries", label: "with executed projects" },
+      { value: "13", unit: "vessels", label: "registered and operational" },
+    ],
+  },
+  chainHead: { eyebrow: "Value chain", title: "From catch to export", intro: "We operate across every link of the industrial fishing sector." },
+  chain: [
+    { t: "Catch & operation", d: "Activation and management of industrial fleets." },
+    { t: "Processing & plant", d: "Integration of plants and canneries." },
+    { t: "Logistics", d: "Process and transport optimisation." },
+    { t: "Value added & export", d: "Direct access to international markets." },
+  ],
+  about: {
+    eyebrow: "About us",
+    title: "The player the sector needed",
+    paragraphs: [
+      "Padantal SL was founded by directors with over 30 years of international experience in the fishing sector, from families with more than 100 years of maritime tradition.",
+      "It was created to fill a key gap: a player able to combine technical know-how and international know-who, lead complex projects, activate fleets and support companies and countries in developing their fishing industry.",
+      "We operate globally and work directly with some of the largest and most influential players in the sector. Governments, major fleets and leading companies call on us to launch complex projects thanks to our real execution capacity, international network and professional reputation.",
+    ],
+    know: [
+      { term: "Know-how", desc: "Deep, proven technical expertise." },
+      { term: "Know-who", desc: "Direct access to the sector's key players." },
+    ],
+  },
+  services: {
+    eyebrow: "What we do",
+    title: "Specialists in international fishing projects",
+    intro: "We work to international standards with a proven technical approach at every stage of the project.",
+    items: [
+      { title: "Project development & operation", desc: "Design, structuring and full execution of international fishing projects, end to end." },
+      { title: "Carrying-capacity activation", desc: "Management before RFMOs (IATTC, ICCAT, IOTC) to activate carrying capacity immediately and compliantly." },
+      { title: "Fleet modernisation", desc: "Fleet renewal and optimisation of operating structures to maximise performance." },
+      { title: "Industrial integration", desc: "Fleet, plant, value-added and export integrated under a single operating and legal framework." },
+    ],
+  },
+  operations: {
+    eyebrow: "Global operation",
+    title: "Projects in more than 10 countries",
+    intro: "We integrate vessels from different oceans under an impeccable legal and operating framework, with direct access to shipowners, governments, plants and markets.",
+    regions: ["Oman", "Morocco", "Spain", "Indian Ocean", "Atlantic"],
+  },
+  sustainability: {
+    eyebrow: "Sustainability & compliance",
+    title: "Responsible, fully regulated fishing",
+    intro: "We always operate within the international legal framework. Resource sustainability and regulatory compliance are the foundation of every project.",
+    items: [
+      { title: "Legal quotas", desc: "Development and management of quotas (yellowfin, BFT) fully aligned with RFMO regulations." },
+      { title: "RFMO compliance", desc: "Compliant operation before IOTC, ICCAT and IATTC: permits, flagging and carrying capacity." },
+      { title: "Traceability", desc: "Transparent legal and operating structures, from catch to export." },
+      { title: "Long-term resource", desc: "Plans designed for responsible, lasting use of the fishing resource." },
+    ],
+  },
+  quality: {
+    eyebrow: "Quality & standards",
+    title: "Proven technical rigour",
+    intro: "Every operation is executed to international standards with a technical approach proven across more than a decade of projects.",
+    items: [
+      { k: "International standards", v: "Operating and legal frameworks compliant with global regulations." },
+      { k: "Proven execution", v: "Design, structuring and launch of complete operations." },
+      { k: "Operational control", v: "Logistics optimisation and continuous process improvement." },
+    ],
+  },
+  pillars: {
+    eyebrow: "3 key pillars",
+    title: "The foundation of every project",
+    intro: "Three strengths that let us deliver real impact from day one.",
+    items: [
+      { n: "01", title: "Global experience & proven execution", points: ["Over 30 years of international experience.", "Projects in more than 10 countries.", "Direct collaboration with the sector's largest players."] },
+      { n: "02", title: "Access, international network & regulatory compliance", points: ["Command of regulations (RFMOs) and management of permits, flagging and international chartering.", "Strategic know-who: direct access to shipowners, governments, plants, operators and markets.", "We integrate vessels from different oceans under an impeccable legal and operating framework."] },
+      { n: "03", title: "Integral solutions & value for countries", points: ["Design of national fishing plans.", "Immediate activation of carrying capacity (3,000–6,000 m³).", "A partner able to deliver real impact from day one."] },
+    ],
+  },
+  societies: {
+    eyebrow: "Active participation",
+    title: "Partnerships with active participation",
+    intro: "We work directly and with shareholding presence alongside some of the world's largest tuna groups, canneries, fleets and governments.",
+    logos: es.societies.logos,
+    orps: [
+      { b: "IOTC", s: "Indian Ocean Tuna Commission" },
+      { b: "ICCAT", s: "Atlantic tuna" },
+      { b: "IATTC", s: "Eastern Pacific" },
+      { b: "Bareboat charter", s: "International flagging & chartering" },
+    ],
+  },
+  cases: {
+    eyebrow: "Case studies",
+    title: "Results, not recommendations",
+    intro: "We were not advisory: we designed, structured and executed the complete operation.",
+    items: [
+      { badge: "Industrial tuna", title: "Development of the industrial tuna sector", location: "Oman · Indian Ocean", image: "/assets/img/seiner.jpg", lead: "Padantal directly led the creation and launch of Oman's modern tuna industry, through investment and collaboration with Ranaq Al Salam LLC, Tuna Development LLC and Rawanq Group.", points: ["Design of the industrial purse-seine tuna plan for the Indian Ocean.", "Legal strategy to develop yellowfin quota, aligned with IOTC.", "Incorporation of Omani companies and registration of vessels under Omani flag."], result: { big: "6", text: "tuna purse seiners registered and operational under Omani flag, in full compliance with IOTC." } },
+      { badge: "Small pelagics", title: "Development of the industrial pelagic fleet", location: "Oman", image: "/assets/img/trawler.jpg", lead: "Padantal led the expansion of Oman's pelagic sector, designing a complete plan for species such as mackerel and scad.", points: ["Design of the fleet and operating model for small pelagics.", "Technical advice and operational structuring for local companies.", "Incorporation of pelagic trawlers into the Omani system."], result: { big: "7", text: "pelagic trawlers operate today under Omani flag thanks to the project developed by Padantal." } },
+      { badge: "Bluefin · BFT", title: "Strategic development with Grupo Ricardo Fuentes", location: "Morocco", image: "/assets/img/almadraba.jpg", lead: "Padantal actively partners with Grupo Ricardo Fuentes, one of the world's largest tuna groups, in bluefin tuna development.", points: ["Securing and managing bluefin tuna (BFT) quotas for Moroccan traps.", "Regulatory and operational coordination to maximise resource yield.", "Logistics optimisation and improvement of extraction processes."], result: { big: "★", text: "Active collaboration with one of the largest tuna groups worldwide." } },
+    ],
+  },
+  company: {
+    eyebrow: "The company",
+    title: "A Spanish company with global reach",
+    intro: "Padantal SL operates from Madrid, leading fishing projects across different oceans. Behind it is a management team with over 30 years of international experience and families with more than a century of maritime tradition.",
+    founder: { name: "Daniel Vidal", role: "Founder & management", note: "Leads Padantal's strategy and the execution of its projects on an international scale." },
+    facts: [
+      { k: "Headquarters", v: "Madrid, Spain" },
+      { k: "Legal form", v: "Limited company (SL)" },
+      { k: "Activity", v: "International fishing development & operation" },
+      { k: "Reach", v: "Projects in 10+ countries" },
+    ],
+    cta: "Talk to Padantal",
+  },
+  conclusion: {
+    eyebrow: "Conclusion",
+    titleLead: "We are not a consultancy. We are a",
+    titleAccent: "strategic partner",
+    lead: "We have the real capacity to transform entire fishing sectors: international experience, relationships with the world's largest players, deep technical knowledge and a proven track record.",
+    duo: [
+      { term: "Know-how", desc: "To design, execute and operate complex projects." },
+      { term: "Know-who", desc: "To mobilise fleet, investment, technology and talent from day one." },
+    ],
+    backTop: "Back to top",
+  },
+  contact: {
+    eyebrow: "Let's talk",
+    title: "Let's launch your project",
+    intro: "Tell us what you need and a Padantal director will get in touch with you.",
+    email: "info@padantal.com",
+    coverage: "Operation on a global scale",
+    response: "Reply within 48 working hours",
+    form: {
+      name: "Full name",
+      company: "Company / organisation",
+      emailLabel: "Email",
+      country: "Country",
+      interest: "Area of interest",
+      message: "Message",
+      send: "Send message",
+      placeholderName: "Your name",
+      placeholderCompany: "Your organisation",
+      placeholderEmail: "name@company.com",
+      placeholderCountry: "Country of operation",
+      placeholderMessage: "Tell us briefly about your project or need...",
+      interests: ["Project development & operation", "Carrying-capacity activation (RFMOs)", "Fleet modernisation", "Industrial integration & export", "Other"],
+      ok: "Thank you! We've received your message and will get back to you soon.",
+      err: "Please enter your name, a valid email and a message.",
+      priv: "Your data will only be used to respond to your request.",
+    },
+  },
+  footer: { nav: "Navigation", tagline: "Global strategic partner in the fishing sector. Technical know-how and international know-who to lead, activate and transform complex projects.", rights: "All rights reserved." },
+  legal: { name: "Padantal SL", nif: "B-55482418", address: "C/ Fernando VI 17, 1.º Izq., 28004 Madrid, Spain", registry: "Registered in the Madrid Commercial Registry" },
 };
+
+export const dict = { es, en };
+export type Dict = typeof es;

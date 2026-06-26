@@ -1,6 +1,6 @@
 "use client";
 
-import { hero } from "@/content/site";
+import { useT } from "@/i18n/lang";
 
 const SRC = "/assets/video/atunero.mp4";
 const POSTER = "/assets/video/poster.jpg";
@@ -10,6 +10,7 @@ const POSTER = "/assets/video/poster.jpg";
  * con velo navy ligero y titular + CTAs. Fallback a póster en reduce-motion.
  */
 export function HeroScrollVideo() {
+  const { hero } = useT();
   return (
     <section className="relative h-[100svh] min-h-[600px] w-full overflow-hidden">
       <video

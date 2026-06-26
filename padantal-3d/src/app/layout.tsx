@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
+import { LangProvider } from "@/i18n/lang";
 
 // Titulares grotesca con peso (look corporativo/tech)
 const display = Space_Grotesk({
@@ -43,7 +44,9 @@ export default function RootLayout({
       lang="es"
       className={`${display.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <LangProvider>{children}</LangProvider>
+      </body>
     </html>
   );
 }
