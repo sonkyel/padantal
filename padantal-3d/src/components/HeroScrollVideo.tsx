@@ -75,7 +75,7 @@ export function HeroScrollVideo() {
           poster={POSTER}
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           autoPlay={!scrub}
           loop={!scrub}
           className="absolute inset-0 h-full w-full object-cover"
@@ -96,9 +96,7 @@ export function HeroScrollVideo() {
                 <span className="eyebrow">{hero.eyebrow}</span>
                 <h1 className="mt-6 text-[clamp(2.8rem,6.6vw,5.6rem)] font-medium leading-[0.98] text-white drop-shadow-[0_2px_30px_rgba(0,0,0,.6)]">
                   {hero.titleLead}{" "}
-                  <span className="bg-gradient-to-r from-amber-bright to-amber bg-clip-text text-transparent">
-                    {hero.titleAccent}
-                  </span>
+                  <span className="text-amber-bright">{hero.titleAccent}</span>
                 </h1>
                 <p className="mt-7 max-w-[520px] text-[1.12rem] leading-relaxed text-white/85 drop-shadow-[0_1px_16px_rgba(0,0,0,.7)]">
                   {hero.lead}
@@ -141,17 +139,18 @@ export function HeroScrollVideo() {
               <span className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white/45">
                 Sociedades con participación activa
               </span>
-              <div className="flex flex-1 flex-wrap items-center justify-between gap-x-8 gap-y-3">
+              <div className="flex flex-1 flex-wrap items-center gap-2.5">
                 {societies.logos.map((l) => (
-                  <Image
-                    key={l.alt}
-                    src={l.src}
-                    alt={l.alt}
-                    width={120}
-                    height={30}
-                    style={{ width: "auto", height: "auto" }}
-                    className="max-h-7 max-w-[120px] object-contain opacity-70 brightness-0 invert transition-opacity duration-300 hover:opacity-100"
-                  />
+                  <span key={l.alt} className="flex h-8 items-center rounded-lg bg-white/95 px-3">
+                    <Image
+                      src={l.src}
+                      alt={l.alt}
+                      width={110}
+                      height={24}
+                      style={{ width: "auto", height: "auto" }}
+                      className="max-h-5 max-w-[96px] object-contain"
+                    />
+                  </span>
                 ))}
               </div>
             </div>

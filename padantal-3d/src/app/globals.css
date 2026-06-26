@@ -9,8 +9,8 @@
 
   /* Texto sobre oscuro */
   --color-ink: #eef3f8;
-  --color-muted: #9fb1c4;
-  --color-faint: #6b7c8f;
+  --color-muted: #a4b5c7;
+  --color-faint: #8395a6;
 
   /* Acento ámbar/oro */
   --color-amber: #f5a623;
@@ -52,8 +52,9 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  line-height: 1.04;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: -0.03em;
   text-wrap: balance;
   color: var(--color-ink);
 }
@@ -94,6 +95,22 @@ p {
   box-shadow:
     0 0 0 1px rgba(245, 166, 35, 0.18),
     0 20px 60px -20px rgba(245, 166, 35, 0.35);
+}
+
+/* Doble bisel (Doppelrand) sobre oscuro: shell + núcleo concéntrico */
+.bezel {
+  border-radius: 1.7rem;
+  padding: 0.4rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.75);
+}
+.bezel-core {
+  border-radius: calc(1.7rem - 0.4rem);
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  height: 100%;
 }
 
 /* Glows de fondo ambientales */

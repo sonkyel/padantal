@@ -14,6 +14,7 @@ import {
   contact,
   company,
   legal,
+  heroCards,
 } from "@/content/site";
 
 export default function Home() {
@@ -25,6 +26,16 @@ export default function Home() {
       <main id="inicio">
         {/* ===================== HERO ===================== */}
         <HeroScrollVideo />
+
+        {/* KPIs en móvil (en escritorio van como tarjetas glass del hero) */}
+        <div className="grid grid-cols-3 gap-3 px-6 py-8 lg:hidden">
+          {heroCards.map((c) => (
+            <div key={c.label} className="glass rounded-2xl p-4 text-center">
+              <div className="font-display text-[1.5rem] leading-none text-white">{c.value}</div>
+              <div className="mt-1.5 text-[0.72rem] leading-tight text-muted">{c.label}</div>
+            </div>
+          ))}
+        </div>
 
         {/* ===================== QUIÉNES SOMOS ===================== */}
         <Section id="nosotros">
@@ -63,10 +74,14 @@ export default function Home() {
           </Reveal>
           <div className="mt-14 grid gap-5 md:grid-cols-2">
             {services.items.map((s, i) => (
-              <Reveal key={s.title} delay={i * 0.06} className="group h-full rounded-[1.6rem] glass p-8 transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:shadow-[0_24px_60px_-20px_rgba(245,166,35,0.45)]">
-                <span className="font-display text-[0.95rem] font-semibold text-amber">0{i + 1}</span>
-                <h3 className="mt-3 text-[1.45rem] font-medium">{s.title}</h3>
-                <p className="mt-3 text-[1rem] leading-relaxed text-muted">{s.desc}</p>
+              <Reveal key={s.title} delay={i * 0.06} className="group h-full transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1">
+                <div className="bezel h-full transition-shadow duration-500 group-hover:shadow-[0_30px_70px_-26px_rgba(245,166,35,0.4)]">
+                  <div className="bezel-core p-8">
+                    <span className="font-display text-[0.95rem] font-semibold text-amber">0{i + 1}</span>
+                    <h3 className="mt-3 text-[1.45rem]">{s.title}</h3>
+                    <p className="mt-3 text-[1rem] leading-relaxed text-muted">{s.desc}</p>
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -75,21 +90,25 @@ export default function Home() {
         {/* ===================== 3 PILARES ===================== */}
         <Section id="pilares">
           <Reveal>
-            <SectionHead eyebrow={pillars.eyebrow} title={pillars.title} intro={pillars.intro} center />
+            <SectionHead title={pillars.title} intro={pillars.intro} center />
           </Reveal>
           <div className="mt-14 grid gap-5 lg:grid-cols-3">
             {pillars.items.map((p, i) => (
-              <Reveal key={p.n} delay={i * 0.08} className="glass h-full rounded-3xl p-8">
-                <div className="font-display text-[2.6rem] font-semibold leading-none text-amber-bright">{p.n}</div>
-                <h3 className="mt-4 text-[1.35rem] font-medium">{p.title}</h3>
-                <ul className="mt-5 space-y-3">
-                  {p.points.map((pt, j) => (
-                    <li key={j} className="flex gap-3 text-[0.98rem] leading-relaxed text-muted">
-                      <Check />
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
+              <Reveal key={p.n} delay={i * 0.08} className="h-full">
+                <div className="bezel h-full">
+                  <div className="bezel-core p-8">
+                    <div className="font-display text-[2.6rem] leading-none text-amber-bright">{p.n}</div>
+                    <h3 className="mt-4 text-[1.35rem]">{p.title}</h3>
+                    <ul className="mt-5 space-y-3">
+                      {p.points.map((pt, j) => (
+                        <li key={j} className="flex gap-3 text-[0.98rem] leading-relaxed text-muted">
+                          <Check />
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -136,7 +155,7 @@ export default function Home() {
         {/* ===================== SOCIEDADES ===================== */}
         <Section id="socios">
           <Reveal>
-            <SectionHead eyebrow={societies.eyebrow} title={societies.title} intro={societies.intro} center />
+            <SectionHead title={societies.title} intro={societies.intro} center />
           </Reveal>
           <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3">
             {societies.logos.map((l, i) => (
@@ -206,7 +225,7 @@ export default function Home() {
             <span className="eyebrow">{conclusion.eyebrow}</span>
             <h2 className="mt-6 text-[clamp(2.2rem,5vw,3.8rem)] font-medium">
               {conclusion.titleLead}{" "}
-              <span className="bg-gradient-to-r from-amber-bright to-amber bg-clip-text text-transparent">{conclusion.titleAccent}</span>.
+              <span className="text-amber-bright">{conclusion.titleAccent}</span>.
             </h2>
             <p className="mx-auto mt-7 max-w-[640px] text-[1.15rem] leading-relaxed text-muted">{conclusion.lead}</p>
             <div className="mx-auto mt-10 flex max-w-[640px] flex-wrap justify-center gap-x-12 gap-y-6 text-left">
@@ -277,11 +296,11 @@ function Section({ id, children, tint }: { id: string; children: React.ReactNode
   );
 }
 
-function SectionHead({ eyebrow, title, intro, center }: { eyebrow: string; title: string; intro?: string; center?: boolean }) {
+function SectionHead({ eyebrow, title, intro, center }: { eyebrow?: string; title: string; intro?: string; center?: boolean }) {
   return (
     <div className={`max-w-[720px] ${center ? "mx-auto text-center" : ""}`}>
-      <span className="eyebrow">{eyebrow}</span>
-      <h2 className="mt-5 text-[clamp(2rem,4.2vw,3.4rem)] font-medium">{title}</h2>
+      {eyebrow && <span className="eyebrow">{eyebrow}</span>}
+      <h2 className={`text-[clamp(2rem,4.2vw,3.4rem)] ${eyebrow ? "mt-5" : ""}`}>{title}</h2>
       {intro && <p className="mt-5 text-[1.12rem] leading-relaxed text-muted">{intro}</p>}
     </div>
   );
