@@ -18,11 +18,11 @@ export function SiteNav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "border-b border-obsidian/12 bg-paper/90 backdrop-blur-md" : "bg-transparent"
+        scrolled ? "border-b border-line bg-base/85 backdrop-blur-xl" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-4">
-        <a href="#inicio" aria-label="Padantal SL inicio" className="text-navy">
+      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4">
+        <a href="#inicio" aria-label="Padantal SL inicio" className="text-ink">
           <PadantalLogo />
         </a>
 
@@ -31,19 +31,17 @@ export function SiteNav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-[0.95rem] text-obsidian transition-opacity duration-200 hover:opacity-60"
+              className="text-[0.92rem] font-medium text-muted transition-colors duration-200 hover:text-cyan-bright"
             >
               {l.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <a href={nav.cta.href} className="btn btn-primary">
-            {nav.cta.label}
-            <Arrow />
-          </a>
-        </div>
+        <a href={nav.cta.href} className="btn btn-primary hidden md:inline-flex">
+          {nav.cta.label}
+          <Arrow />
+        </a>
 
         <button
           type="button"
@@ -52,14 +50,13 @@ export function SiteNav() {
           onClick={() => setOpen((v) => !v)}
           className="relative flex h-10 w-10 items-center justify-center md:hidden"
         >
-          <span className={`absolute h-0.5 w-6 rounded bg-obsidian transition-all duration-300 ${open ? "rotate-45" : "-translate-y-1.5"}`} />
-          <span className={`absolute h-0.5 w-6 rounded bg-obsidian transition-all duration-300 ${open ? "-rotate-45" : "translate-y-1.5"}`} />
+          <span className={`absolute h-0.5 w-6 rounded bg-ink transition-all duration-300 ${open ? "rotate-45" : "-translate-y-1.5"}`} />
+          <span className={`absolute h-0.5 w-6 rounded bg-ink transition-all duration-300 ${open ? "-rotate-45" : "translate-y-1.5"}`} />
         </button>
       </div>
 
-      {/* Menú móvil */}
       <div
-        className={`overflow-hidden border-t border-obsidian/10 bg-paper transition-all duration-400 md:hidden ${
+        className={`overflow-hidden border-t border-line bg-base/95 backdrop-blur-xl transition-all duration-400 md:hidden ${
           open ? "max-h-[420px] opacity-100" : "pointer-events-none max-h-0 opacity-0"
         }`}
       >
@@ -69,7 +66,7 @@ export function SiteNav() {
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="rounded-[20px] px-4 py-3 text-obsidian transition-colors hover:bg-obsidian/5"
+              className="rounded-2xl px-4 py-3 text-ink transition-colors hover:bg-white/5"
             >
               {l.label}
             </a>
@@ -86,7 +83,7 @@ export function SiteNav() {
 
 function Arrow() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
       <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );

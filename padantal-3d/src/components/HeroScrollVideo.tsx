@@ -80,33 +80,36 @@ export function HeroScrollVideo() {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        {/* Velo sólido mínimo solo en el tercio inferior (legibilidad, no atmósfera) */}
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,rgba(14,18,22,.72)_100%)]" />
+        {/* Velos navy para contraste */}
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,20,40,.55)_0%,rgba(8,20,40,.2)_40%,rgba(8,20,40,.85)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,20,40,.72)_0%,transparent_60%)]" />
 
-        {/* Contenido en el tercio inferior */}
-        <div className="on-photo absolute inset-x-0 bottom-0">
-          <div className="mx-auto max-w-[1440px] px-6 pb-16 md:pb-20">
-            <span className="eyebrow text-white/80">{hero.eyebrow}</span>
-            <h1 className="display mt-4 max-w-[15ch] text-[clamp(2.8rem,8vw,7rem)] text-white">
-              {hero.titleLead} {hero.titleAccent}
-            </h1>
-            <p className="mt-5 max-w-[42ch] text-[1.02rem] leading-relaxed text-white/85">
-              {hero.lead}
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a href={hero.ctaPrimary.href} className="btn btn-primary">
-                {hero.ctaPrimary.label}
-                <Arrow />
-              </a>
-              <a href={hero.ctaSecondary.href} className="btn btn-ghost">
-                {hero.ctaSecondary.label}
-              </a>
+        {/* Contenido */}
+        <div className="relative flex h-full items-center">
+          <div className="mx-auto w-full max-w-[1280px] px-6">
+            <div className="max-w-[680px]">
+              <span className="eyebrow">{hero.eyebrow}</span>
+              <h1 className="mt-5 text-[clamp(2.6rem,6.4vw,5.4rem)] font-semibold leading-[1.02] text-white drop-shadow-[0_2px_30px_rgba(0,0,0,.5)]">
+                {hero.titleLead} <span className="text-cyan-bright">{hero.titleAccent}</span>
+              </h1>
+              <p className="mt-6 max-w-[520px] text-[1.1rem] leading-relaxed text-white/85">
+                {hero.lead}
+              </p>
+              <div className="mt-9 flex flex-wrap items-center gap-3">
+                <a href={hero.ctaPrimary.href} className="btn btn-primary">
+                  {hero.ctaPrimary.label}
+                  <Arrow />
+                </a>
+                <a href={hero.ctaSecondary.href} className="btn btn-ghost">
+                  {hero.ctaSecondary.label}
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Indicador de scroll */}
-        <div className="on-photo pointer-events-none absolute right-8 top-1/2 hidden -translate-y-1/2 flex-col items-center gap-2 text-[0.68rem] uppercase tracking-[0.2em] text-white/55 md:flex">
+        <div className="pointer-events-none absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[0.68rem] uppercase tracking-[0.2em] text-white/55 md:flex">
           <span className="relative h-9 w-[22px] rounded-full border-2 border-white/40">
             <span className="absolute left-1/2 top-[7px] h-[7px] w-[3px] -translate-x-1/2 rounded bg-white motion-safe:animate-[scrollcue_1.6s_infinite]" />
           </span>

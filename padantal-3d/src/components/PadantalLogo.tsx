@@ -12,7 +12,7 @@ export function PadantalLogo({
         <path d="M26 110 C48 105 72 104 90 98 L96 104 C76 114 48 116 26 110 Z" />
       </svg>
       {withWordmark && (
-        <span className="text-[1.15rem] font-normal tracking-[-0.03em]">Padantal</span>
+        <span className="font-display text-[1.2rem] font-semibold tracking-[-0.02em]">Padantal</span>
       )}
     </span>
   );

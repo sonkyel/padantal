@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 
-// Inter (sustituto libre de "Oracle"): pesos susurrados 200–500
-const inter = Inter({
-  variable: "--font-sans",
+// Titulares grotesca con peso (look corporativo/tech)
+const display = Space_Grotesk({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+// Texto / UI
+const inter = Inter({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -33,7 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${inter.variable} h-full antialiased`}
+      className={`${display.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full">{children}</body>
     </html>
