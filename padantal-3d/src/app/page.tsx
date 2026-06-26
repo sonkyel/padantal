@@ -4,6 +4,7 @@ import { PadantalLogo } from "@/components/PadantalLogo";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Reveal } from "@/components/Reveal";
 import { HeroScrollVideo } from "@/components/HeroScrollVideo";
+import OperationsGlobe3D from "@/components/OperationsGlobe3D";
 import {
   hero,
   about,
@@ -135,7 +136,7 @@ export default function Home() {
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <OperationsGlobe />
+              <OperationsGlobe3D />
             </Reveal>
           </div>
         </Section>
@@ -343,45 +344,6 @@ function SectionHead({ eyebrow, title, intro, center }: { eyebrow?: string; titl
       {eyebrow && <span className={`eyebrow ${center ? "center" : ""}`}>{eyebrow}</span>}
       <h2 className={`text-[clamp(2rem,4.4vw,3.4rem)] font-semibold ${eyebrow ? "mt-5" : ""}`}>{title}</h2>
       {intro && <p className="mt-5 text-[1.1rem] text-muted">{intro}</p>}
-    </div>
-  );
-}
-
-function OperationsGlobe() {
-  return (
-    <div className="relative mx-auto aspect-square w-full max-w-[440px]">
-      <div className="cyan-orb inset-0 opacity-40" />
-      <svg viewBox="0 0 400 400" className="relative h-full w-full">
-        <defs>
-          <radialGradient id="g" cx="50%" cy="45%" r="60%">
-            <stop offset="0%" stopColor="#0e2b48" />
-            <stop offset="100%" stopColor="#081428" />
-          </radialGradient>
-        </defs>
-        <circle cx="200" cy="200" r="150" fill="url(#g)" stroke="rgba(56,189,248,.35)" strokeWidth="1" />
-        {/* meridianos / paralelos */}
-        {[40, 80, 120].map((r) => (
-          <ellipse key={r} cx="200" cy="200" rx={r} ry="150" fill="none" stroke="rgba(120,180,230,.18)" strokeWidth="1" />
-        ))}
-        {[ -60, 0, 60 ].map((o) => (
-          <line key={o} x1="50" y1={200 + o} x2="350" y2={200 + o} stroke="rgba(120,180,230,.14)" strokeWidth="1" />
-        ))}
-        {/* arcos entre nodos */}
-        <path d="M150 150 Q200 80 250 170" fill="none" stroke="#38bdf8" strokeWidth="1.6" opacity=".9" />
-        <path d="M250 170 Q230 240 175 250" fill="none" stroke="#67d6ff" strokeWidth="1.6" opacity=".9" />
-        {/* nodos */}
-        {[
-          { x: 150, y: 150, l: "España" },
-          { x: 250, y: 170, l: "Marruecos" },
-          { x: 175, y: 250, l: "Omán" },
-        ].map((n) => (
-          <g key={n.l}>
-            <circle cx={n.x} cy={n.y} r="9" fill="rgba(56,189,248,.18)" />
-            <circle cx={n.x} cy={n.y} r="3.5" fill="#67d6ff" />
-            <text x={n.x + 12} y={n.y + 4} fill="#cfe6fb" fontSize="12" fontFamily="sans-serif">{n.l}</text>
-          </g>
-        ))}
-      </svg>
     </div>
   );
 }
