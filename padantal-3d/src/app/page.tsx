@@ -56,8 +56,8 @@ export default function Home() {
         {/* Quiénes somos — asimétrico con fondo */}
         <section id="nosotros" className="relative overflow-hidden px-6 py-24 md:px-10 md:py-32">
           <div className="absolute inset-0 -z-10">
-            <Image src="/assets/img/bg/nosotros.jpg" alt="" fill sizes="100vw" className="object-cover opacity-40" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--color-base),rgba(10,10,11,.66)_55%,var(--color-base))]" />
+            <Image src="/assets/img/bg/nosotros.jpg" alt="" fill sizes="100vw" className="object-cover opacity-80" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,11,.85),rgba(10,10,11,.35)_45%,rgba(10,10,11,.92))]" />
           </div>
           <div className="mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[0.9fr_1.1fr]">
             <Reveal>
@@ -86,8 +86,8 @@ export default function Home() {
         {/* Operación global (globo 3D) */}
         <section id="operacion" className="relative overflow-hidden px-6 py-24 md:px-10 md:py-32">
           <div className="absolute inset-0 -z-10">
-            <Image src="/assets/img/bg/operacion.jpg" alt="" fill sizes="100vw" className="object-cover opacity-25" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--color-base),rgba(10,10,11,.6),var(--color-base))]" />
+            <Image src="/assets/img/bg/operacion.jpg" alt="" fill sizes="100vw" className="object-cover opacity-70" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,10,11,.92),rgba(10,10,11,.55)_55%,rgba(10,10,11,.25))]" />
           </div>
           <div className="mx-auto grid max-w-[1500px] items-center gap-14 lg:grid-cols-2">
             <Reveal>
@@ -154,8 +154,8 @@ export default function Home() {
         {/* Contacto */}
         <section id="contacto" className="relative overflow-hidden px-6 py-24 md:px-10 md:py-32">
           <div className="absolute inset-0 -z-10">
-            <Image src="/assets/img/bg/contacto.jpg" alt="" fill sizes="100vw" className="object-cover opacity-40" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--color-base),rgba(10,10,11,.8))]" />
+            <Image src="/assets/img/bg/contacto.jpg" alt="" fill sizes="100vw" className="object-cover opacity-90" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,11,.7),rgba(10,10,11,.45)_50%,rgba(10,10,11,.85))]" />
           </div>
           <div className="mx-auto grid max-w-[1300px] gap-12 lg:grid-cols-[1fr_1.05fr]">
             <Reveal>

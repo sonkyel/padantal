@@ -41,8 +41,8 @@ export function ApproachTabs() {
   return (
     <section ref={sectionRef} id="enfoque" className="relative overflow-hidden px-6 py-24 md:px-10 md:py-32">
       <div className="absolute inset-0 -z-10">
-        <img src="/assets/img/bg/enfoque.jpg" alt="" aria-hidden="true" className="h-full w-full object-cover opacity-[0.14]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--color-base),rgba(10,10,11,.7),var(--color-base))]" />
+        <img src="/assets/img/bg/enfoque.jpg" alt="" aria-hidden="true" className="h-full w-full object-cover opacity-45" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,11,.78),rgba(10,10,11,.5)_45%,rgba(10,10,11,.9))]" />
       </div>
       {/* anclas invisibles para deep-link desde el nav */}
       <span id="servicios" className="absolute -top-24" />
