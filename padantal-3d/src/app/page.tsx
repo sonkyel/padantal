@@ -142,10 +142,18 @@ export default function Home() {
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <div className="card rounded-2xl p-8">
-                <div className="flex items-center gap-4"><span className="flex h-14 w-14 items-center justify-center rounded-full border border-acc/50 font-display text-[1.1rem] font-bold text-acc">DV</span><div><div className="font-display text-[1.25rem] font-bold">{t.company.founder.name}</div><div className="label">{t.company.founder.role}</div></div></div>
-                <p className="mt-6 text-[1rem] text-muted">{t.company.founder.note}</p>
-                <a href="#contacto" className="mt-6 inline-flex items-center gap-2 text-[0.95rem] font-medium text-acc hover:text-cream">{t.company.cta} <Arrow /></a>
+              <div className="card overflow-hidden rounded-2xl">
+                <div className="flex items-center gap-5 p-6">
+                  <Image src="/assets/img/daniel-vidal.jpg" alt={t.company.founder.name} width={88} height={88} className="h-20 w-20 shrink-0 rounded-2xl object-cover" />
+                  <div>
+                    <div className="font-display text-[1.3rem] font-bold leading-tight">{t.company.founder.name}</div>
+                    <div className="label mt-1">{t.company.founder.role}</div>
+                  </div>
+                </div>
+                <div className="border-t border-line p-6 pt-5">
+                  <p className="text-[1rem] text-muted">{t.company.founder.note}</p>
+                  <a href="#contacto" className="mt-5 inline-flex items-center gap-2 text-[0.95rem] font-medium text-acc hover:text-cream">{t.company.cta} <Arrow /></a>
+                </div>
               </div>
             </Reveal>
           </div>
