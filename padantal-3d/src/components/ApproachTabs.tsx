@@ -61,20 +61,19 @@ export function ApproachTabs() {
 
         {/* Barra de pestañas */}
         <div className="mt-10 flex justify-start gap-2 overflow-x-auto border-y border-line py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {tabs.map((tb, i) => (
+          {tabs.map((tb) => (
             <button
               key={tb.id}
               type="button"
               onClick={() => setTab(tb.id)}
               aria-selected={tab === tb.id}
-              className={`relative flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 text-[0.95rem] font-medium transition-colors duration-300 ${
+              className={`relative shrink-0 rounded-full px-5 py-2.5 text-[0.95rem] font-medium transition-colors duration-300 ${
                 tab === tb.id ? "text-[#0a0a0b]" : "text-muted hover:text-cream"
               }`}
             >
               {tab === tb.id && (
                 <motion.span layoutId="tabpill" className="absolute inset-0 -z-10 rounded-full bg-cream" transition={{ type: "spring", stiffness: 380, damping: 32 }} />
               )}
-              <span className={`font-mono text-[0.66rem] ${tab === tb.id ? "text-[#0a0a0b]/60" : "text-faint"}`}>0{i + 1}</span>
               {tb.label}
             </button>
           ))}

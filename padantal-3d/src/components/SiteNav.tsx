@@ -41,9 +41,8 @@ export function SiteNav() {
         </a>
 
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
-          {t.nav.links.map((l, i) => (
-            <a key={l.href} href={l.href} className="group flex items-center gap-1.5 text-[0.92rem] text-muted transition-colors hover:text-cream">
-              <span className="label-muted text-[0.6rem] transition-colors group-hover:text-acc">0{i + 1}</span>
+          {t.nav.links.map((l) => (
+            <a key={l.href} href={l.href} className="text-[0.92rem] text-muted transition-colors hover:text-cream">
               {l.label}
             </a>
           ))}
@@ -68,9 +67,8 @@ export function SiteNav() {
 
       <div className={`overflow-hidden border-t border-line bg-base/95 backdrop-blur-xl transition-all duration-400 md:hidden ${open ? "max-h-[420px] opacity-100" : "pointer-events-none max-h-0 opacity-0"}`}>
         <nav className="flex flex-col gap-1 p-5">
-          {t.nav.links.map((l, i) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="flex items-center gap-3 rounded-xl px-4 py-3 text-cream transition-colors hover:bg-white/5">
-              <span className="label-muted text-[0.62rem]">0{i + 1}</span>
+          {t.nav.links.map((l) => (
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="rounded-xl px-4 py-3 text-cream transition-colors hover:bg-white/5">
               {l.label}
             </a>
           ))}

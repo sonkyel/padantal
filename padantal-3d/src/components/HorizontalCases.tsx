@@ -44,7 +44,6 @@ export function HorizontalCases() {
         <span className="label">[ {cases.eyebrow} ]</span>
         <h2 className="mt-4 text-[clamp(2.2rem,6vw,5rem)] font-bold leading-[0.9]">{cases.title}</h2>
       </div>
-      <span className="label-muted hidden md:block">(01—0{cases.items.length})</span>
     </div>
   );
 
@@ -55,7 +54,7 @@ export function HorizontalCases() {
         <span className="label absolute left-5 top-5 rounded-full bg-base/70 px-3 py-1.5 backdrop-blur-md">{c.badge}</span>
       </div>
       <div className="flex flex-1 flex-col p-7">
-        <span className="label-muted">0{i + 1} — {c.location}</span>
+        <span className="label-muted">{c.location}</span>
         <h3 className="mt-3 text-[1.5rem] font-bold leading-tight">{c.title}</h3>
         <p className="mt-3 text-[0.98rem] text-muted">{c.lead}</p>
         <div className="mt-auto flex items-center gap-4 border-t border-line pt-5">

@@ -42,8 +42,7 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-4">
             {t.hero.stats.map((s, i) => (
               <Reveal key={s.label} delay={i * 0.06}>
-                <span className="label-muted">0{i + 1}</span>
-                <div className="mt-3 font-display text-[clamp(2.6rem,5vw,4.2rem)] font-bold leading-none">
+                <div className="font-display text-[clamp(2.6rem,5vw,4.2rem)] font-bold leading-none">
                   <Counter value={s.value} />
                   <span className="ml-1 text-[0.32em] font-medium text-acc">{s.unit}</span>
                 </div>
