@@ -55,8 +55,9 @@ export default function Home() {
         {/* Quiénes somos — asimétrico con fondo */}
         <section id="nosotros" className="relative overflow-hidden px-6 py-24 md:px-10 md:py-32">
           <div className="absolute inset-0 -z-10">
-            <Image src="/assets/img/bg/nosotros.jpg" alt="" fill sizes="100vw" className="object-cover opacity-80" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,11,.85),rgba(10,10,11,.35)_45%,rgba(10,10,11,.92))]" />
+            <Image src="/assets/img/bg/nosotros.jpg" alt="" fill sizes="100vw" className="object-cover opacity-55" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,11,.8),rgba(10,10,11,.62)_45%,rgba(10,10,11,.92))]" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(10,10,11,.5)_55%,rgba(10,10,11,.75))]" />
           </div>
           <div className="mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[0.9fr_1.1fr]">
             <Reveal>
@@ -65,7 +66,7 @@ export default function Home() {
             <Reveal delay={0.05}>
               <h2 className="text-[clamp(2.2rem,5.5vw,4.6rem)] font-bold leading-[0.95]">{t.about.title}</h2>
               <div className="mt-8 grid gap-6 md:grid-cols-2">
-                {t.about.paragraphs.slice(0, 2).map((p, i) => <p key={i} className="text-[1.02rem] text-muted">{p}</p>)}
+                {t.about.paragraphs.slice(0, 2).map((p, i) => <p key={i} className="text-[1.02rem] text-cream/85">{p}</p>)}
               </div>
               <div className="mt-8 flex flex-wrap gap-4">
                 {t.about.know.map((k) => (
@@ -166,18 +167,19 @@ export default function Home() {
         {/* Contacto */}
         <section id="contacto" className="relative overflow-hidden px-6 py-24 md:px-10 md:py-32">
           <div className="absolute inset-0 -z-10">
-            <Image src="/assets/img/bg/contacto.jpg" alt="" fill sizes="100vw" className="object-cover opacity-90" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,11,.7),rgba(10,10,11,.45)_50%,rgba(10,10,11,.85))]" />
+            <Image src="/assets/img/bg/contacto.jpg" alt="" fill sizes="100vw" className="object-cover opacity-65" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,11,.78),rgba(10,10,11,.6)_50%,rgba(10,10,11,.9))]" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,10,11,.7),rgba(10,10,11,.35)_55%,transparent)]" />
           </div>
           <div className="mx-auto grid max-w-[1300px] gap-12 lg:grid-cols-[1fr_1.05fr]">
             <Reveal>
               <span className="label">[ {t.contact.eyebrow} ]</span>
               <h2 className="mt-5 text-[clamp(2.2rem,5.5vw,4.6rem)] font-bold leading-[0.92]">{t.contact.title}</h2>
-              <p className="mt-6 max-w-[40ch] text-[1.05rem] text-muted">{t.contact.intro}</p>
+              <p className="mt-6 max-w-[40ch] text-[1.05rem] text-cream/85">{t.contact.intro}</p>
               <ul className="mt-8 space-y-3 text-[0.98rem]">
                 <li className="flex items-center gap-3"><Dot /><a href={`mailto:${t.contact.email}`} className="hover:text-acc">{t.contact.email}</a></li>
-                <li className="flex items-center gap-3"><Dot /><span className="text-muted">{t.contact.coverage}</span></li>
-                <li className="flex items-center gap-3"><Dot /><span className="text-muted">{t.contact.response}</span></li>
+                <li className="flex items-center gap-3"><Dot /><span className="text-cream/80">{t.contact.coverage}</span></li>
+                <li className="flex items-center gap-3"><Dot /><span className="text-cream/80">{t.contact.response}</span></li>
               </ul>
             </Reveal>
             <Reveal delay={0.1}><ContactForm /></Reveal>

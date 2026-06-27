@@ -57,9 +57,13 @@ export function HorizontalCases() {
         <span className="label-muted">{c.location}</span>
         <h3 className="mt-3 text-[1.5rem] font-bold leading-tight">{c.title}</h3>
         <p className="mt-3 text-[0.98rem] text-muted">{c.lead}</p>
-        <div className="mt-auto flex items-center gap-4 border-t border-line pt-5">
-          <span className="font-display text-[2.6rem] font-bold leading-none text-acc">{c.result.big}</span>
-          <p className="text-[0.92rem] text-muted">{c.result.text}</p>
+        <div className="mt-auto border-t border-line pt-5">
+          <p className="text-[0.95rem] leading-relaxed text-muted">
+            {/^\d/.test(c.result.big) && (
+              <span className="mr-1.5 font-display text-[1.6rem] font-bold leading-none text-acc align-baseline">{c.result.big}</span>
+            )}
+            {c.result.text}
+          </p>
         </div>
       </div>
     </article>
