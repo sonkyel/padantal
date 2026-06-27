@@ -132,7 +132,7 @@ const es = {
     eyebrow: "La compañía",
     title: "Una sociedad española con alcance global",
     intro: "Padantal SL opera desde Madrid liderando proyectos pesqueros en distintos océanos. Detrás hay dirección con más de 30 años de experiencia internacional y familias con más de un siglo de tradición marítima.",
-    founder: { name: "Daniel Vidal", role: "Fundador y dirección", note: "Lidera la estrategia y la ejecución de los proyectos de Padantal a escala internacional." },
+    founder: { name: "Daniel Vidal", role: "Fundador y dirección", note: "Lidera la estrategia y la ejecución de los proyectos de Padantal a escala internacional.", linkedin: "https://www.linkedin.com/in/daniel-vidal-chouza/", linkedinLabel: "Conectar en LinkedIn" },
     facts: [
       { k: "Sede", v: "Madrid, España" },
       { k: "Forma jurídica", v: "Sociedad Limitada (SL)" },
@@ -316,7 +316,7 @@ const en: typeof es = {
     eyebrow: "The company",
     title: "A Spanish company with global reach",
     intro: "Padantal SL operates from Madrid, leading fishing projects across different oceans. Behind it is a management team with over 30 years of international experience and families with more than a century of maritime tradition.",
-    founder: { name: "Daniel Vidal", role: "Founder & management", note: "Leads Padantal's strategy and the execution of its projects on an international scale." },
+    founder: { name: "Daniel Vidal", role: "Founder & management", note: "Leads Padantal's strategy and the execution of its projects on an international scale.", linkedin: "https://www.linkedin.com/in/daniel-vidal-chouza/", linkedinLabel: "Connect on LinkedIn" },
     facts: [
       { k: "Headquarters", v: "Madrid, Spain" },
       { k: "Legal form", v: "Limited company (SL)" },

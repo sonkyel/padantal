@@ -151,7 +151,12 @@ export default function Home() {
                 </div>
                 <div className="border-t border-line p-6 pt-5">
                   <p className="text-[1rem] text-muted">{t.company.founder.note}</p>
-                  <a href="#contacto" className="mt-5 inline-flex items-center gap-2 text-[0.95rem] font-medium text-acc hover:text-cream">{t.company.cta} <Arrow /></a>
+                  <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+                    <a href="#contacto" className="inline-flex items-center gap-2 text-[0.95rem] font-medium text-acc hover:text-cream">{t.company.cta} <Arrow /></a>
+                    <a href={t.company.founder.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[0.95rem] font-medium text-muted transition-colors hover:text-cream">
+                      <LinkedIn /> {t.company.founder.linkedinLabel}
+                    </a>
+                  </div>
                 </div>
               </div>
             </Reveal>
@@ -224,4 +229,11 @@ function Arrow() {
 }
 function Dot() {
   return <span className="h-2 w-2 shrink-0 rounded-full bg-acc" />;
+}
+function LinkedIn() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="h-[18px] w-[18px]">
+      <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.1c0-1.22-.02-2.8-1.9-2.8-1.9 0-2.2 1.34-2.2 2.71V21H9V9Z" />
+    </svg>
+  );
 }
