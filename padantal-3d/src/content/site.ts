@@ -178,7 +178,18 @@ const es = {
       priv: "Tus datos solo se utilizarán para responder a tu solicitud.",
     },
   },
-  footer: { nav: "Navegación", tagline: "Socio estratégico global del sector pesquero. Know-how técnico y know-who internacional para liderar, activar y transformar proyectos complejos.", rights: "Todos los derechos reservados." },
+  footer: { nav: "Navegación", tagline: "Socio estratégico global del sector pesquero. Know-how técnico y know-who internacional para liderar, activar y transformar proyectos complejos.", rights: "Todos los derechos reservados.", legalLink: "Aviso legal y privacidad" },
+  cookies: { text: "Usamos cookies propias y técnicas para el funcionamiento del sitio y, con tu permiso, de medición. Puedes aceptarlas o rechazarlas.", accept: "Aceptar", reject: "Rechazar", more: "Más información" },
+  privacy: {
+    title: "Aviso legal y privacidad",
+    sections: [
+      { h: "Titular", p: "Este sitio web es titularidad de Padantal SL (NIF B-55482418), con domicilio en C/ Fernando VI 17, 1.º Izq., 28004 Madrid (España), inscrita en el Registro Mercantil de Madrid. Contacto: info@padantal.com." },
+      { h: "Protección de datos", p: "Los datos que facilites a través del formulario de contacto se tratan con la única finalidad de atender tu solicitud, conforme al RGPD (UE) 2016/679 y la LOPDGDD. No se ceden a terceros salvo obligación legal. Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a info@padantal.com." },
+      { h: "Cookies", p: "Utilizamos cookies técnicas necesarias para el funcionamiento del sitio y, sujeto a tu consentimiento, cookies de medición para entender el uso de la web. Puedes aceptarlas o rechazarlas desde el aviso inicial; las técnicas no requieren consentimiento. Tu elección se guarda en tu navegador." },
+      { h: "Propiedad intelectual", p: "Los contenidos, marcas y materiales de este sitio pertenecen a Padantal SL o a sus legítimos titulares. Queda prohibida su reproducción sin autorización." },
+    ],
+    back: "Volver al inicio",
+  },
   legal: { name: "Padantal SL", nif: "B-55482418", address: "C/ Fernando VI 17, 1.º Izq., 28004 Madrid, España", registry: "Inscrita en el Registro Mercantil de Madrid" },
 };
 
@@ -351,7 +362,18 @@ const en: typeof es = {
       priv: "Your data will only be used to respond to your request.",
     },
   },
-  footer: { nav: "Navigation", tagline: "Global strategic partner in the fishing sector. Technical know-how and international know-who to lead, activate and transform complex projects.", rights: "All rights reserved." },
+  footer: { nav: "Navigation", tagline: "Global strategic partner in the fishing sector. Technical know-how and international know-who to lead, activate and transform complex projects.", rights: "All rights reserved.", legalLink: "Legal notice & privacy" },
+  cookies: { text: "We use our own technical cookies for the site to work and, with your permission, analytics cookies. You can accept or reject them.", accept: "Accept", reject: "Reject", more: "Learn more" },
+  privacy: {
+    title: "Legal notice & privacy",
+    sections: [
+      { h: "Owner", p: "This website is owned by Padantal SL (Tax ID B-55482418), registered office at C/ Fernando VI 17, 1.º Izq., 28004 Madrid (Spain), registered in the Madrid Commercial Registry. Contact: info@padantal.com." },
+      { h: "Data protection", p: "Any data you submit through the contact form is processed solely to handle your request, in accordance with GDPR (EU) 2016/679 and Spanish data-protection law. It is not shared with third parties unless legally required. You may exercise your rights of access, rectification, erasure, objection, restriction and portability by writing to info@padantal.com." },
+      { h: "Cookies", p: "We use technical cookies necessary for the site to function and, subject to your consent, analytics cookies to understand how the site is used. You can accept or reject them from the initial notice; technical cookies do not require consent. Your choice is stored in your browser." },
+      { h: "Intellectual property", p: "The contents, trademarks and materials on this site belong to Padantal SL or their rightful owners. Reproduction without authorisation is prohibited." },
+    ],
+    back: "Back to home",
+  },
   legal: { name: "Padantal SL", nif: "B-55482418", address: "C/ Fernando VI 17, 1.º Izq., 28004 Madrid, Spain", registry: "Registered in the Madrid Commercial Registry" },
 };
 

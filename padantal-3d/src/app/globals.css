@@ -13,9 +13,9 @@
   --color-muted: #9a988f;
   --color-faint: #6d6b64;
 
-  /* Acento eléctrico */
-  --color-acc: #2be0ff;
-  --color-acc-deep: #13bfe0;
+  /* Acento coral / terracota */
+  --color-acc: #e2725b;
+  --color-acc-deep: #c85a44;
 
   /* Líneas */
   --color-line: rgba(239, 236, 227, 0.12);
@@ -184,7 +184,7 @@ p {
 }
 .cursor-ring.hover {
   border-color: var(--color-acc);
-  background: rgba(43, 224, 255, 0.08);
+  background: rgba(226, 114, 91, 0.1);
 }
 
 @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }

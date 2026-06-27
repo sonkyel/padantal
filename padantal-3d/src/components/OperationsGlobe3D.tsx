@@ -3,19 +3,32 @@
 import { useEffect, useRef, useState } from "react";
 import createGlobe from "cobe";
 
-const OMAN: [number, number] = [23.6, 58.5];
-const MARRUECOS: [number, number] = [31.8, -7.1];
+// Puntos de alcance (lat, lng)
 const ESPANA: [number, number] = [40.4, -3.7];
+const MARRUECOS: [number, number] = [31.8, -7.1];
+const OMAN: [number, number] = [23.6, 58.5];
+const PANAMA: [number, number] = [8.5, -80.0];
+const SENEGAL: [number, number] = [14.7, -17.4];
+const SEYCHELLES: [number, number] = [-4.6, 55.5];
+const ATLANTICO: [number, number] = [20.0, -35.0];
+const PACIFICO: [number, number] = [5.0, 150.0];
+const JAPON: [number, number] = [35.0, 139.0];
+const MEDITERRANEO: [number, number] = [37.0, 12.0];
 
-const MARKERS: { location: [number, number]; size: number }[] = [
-  { location: OMAN, size: 0.07 },
-  { location: MARRUECOS, size: 0.07 },
-  { location: ESPANA, size: 0.07 },
-];
+const PTS = [ESPANA, MARRUECOS, OMAN, PANAMA, SENEGAL, SEYCHELLES, ATLANTICO, PACIFICO, JAPON, MEDITERRANEO];
+
+const MARKERS = PTS.map((location, i) => ({ location, size: i < 3 ? 0.08 : 0.05 }));
 
 const ARCS = [
   { from: ESPANA, to: MARRUECOS },
   { from: MARRUECOS, to: OMAN },
+  { from: ESPANA, to: PANAMA },
+  { from: ESPANA, to: SENEGAL },
+  { from: OMAN, to: SEYCHELLES },
+  { from: MARRUECOS, to: ATLANTICO },
+  { from: OMAN, to: PACIFICO },
+  { from: PACIFICO, to: JAPON },
+  { from: ESPANA, to: MEDITERRANEO },
 ];
 
 function canUseWebGL() {
@@ -63,12 +76,12 @@ export default function OperationsGlobe3D() {
       diffuse: 1.2,
       mapSamples: 16000,
       mapBrightness: 5.4,
-      baseColor: [0.13, 0.22, 0.36],
-      markerColor: [0.4, 0.84, 1],
-      glowColor: [0.12, 0.32, 0.55],
+      baseColor: [0.28, 0.3, 0.34],
+      markerColor: [0.886, 0.447, 0.357],
+      glowColor: [0.45, 0.27, 0.22],
       markers: MARKERS,
       arcs: ARCS,
-      arcColor: [0.4, 0.84, 1],
+      arcColor: [0.886, 0.447, 0.357],
       arcWidth: 0.5,
       arcHeight: 0.4,
     });
@@ -120,7 +133,7 @@ export default function OperationsGlobe3D() {
 
   return (
     <div ref={wrapRef} className="relative mx-auto aspect-square w-full max-w-[460px]">
-      <div className="cyan-orb inset-0 opacity-40" />
+      <div className="absolute inset-0 rounded-full opacity-40 blur-2xl" style={{ background: "radial-gradient(circle, rgba(226,114,91,.28), transparent 65%)" }} />
       {enabled === false ? (
         <OperationsGlobeSVG />
       ) : (
@@ -144,24 +157,29 @@ function OperationsGlobeSVG() {
           <stop offset="100%" stopColor="#081428" />
         </radialGradient>
       </defs>
-      <circle cx="200" cy="200" r="150" fill="url(#g3)" stroke="rgba(56,189,248,.35)" strokeWidth="1" />
+      <circle cx="200" cy="200" r="150" fill="url(#g3)" stroke="rgba(226,114,91,.35)" strokeWidth="1" />
       {[40, 80, 120].map((r) => (
-        <ellipse key={r} cx="200" cy="200" rx={r} ry="150" fill="none" stroke="rgba(120,180,230,.18)" strokeWidth="1" />
+        <ellipse key={r} cx="200" cy="200" rx={r} ry="150" fill="none" stroke="rgba(200,170,160,.16)" strokeWidth="1" />
       ))}
-      {[-60, 0, 60].map((o) => (
-        <line key={o} x1="50" y1={200 + o} x2="350" y2={200 + o} stroke="rgba(120,180,230,.14)" strokeWidth="1" />
+      {[-90, -45, 0, 45, 90].map((o) => (
+        <line key={o} x1="52" y1={200 + o} x2="348" y2={200 + o} stroke="rgba(200,170,160,.12)" strokeWidth="1" />
       ))}
-      <path d="M150 150 Q200 80 250 170" fill="none" stroke="#38bdf8" strokeWidth="1.6" opacity=".9" />
-      <path d="M250 170 Q230 240 175 250" fill="none" stroke="#67d6ff" strokeWidth="1.6" opacity=".9" />
       {[
-        { x: 150, y: 150, l: "España" },
-        { x: 250, y: 170, l: "Marruecos" },
-        { x: 175, y: 250, l: "Omán" },
-      ].map((n) => (
-        <g key={n.l}>
-          <circle cx={n.x} cy={n.y} r="9" fill="rgba(56,189,248,.18)" />
-          <circle cx={n.x} cy={n.y} r="3.5" fill="#67d6ff" />
-          <text x={n.x + 12} y={n.y + 4} fill="#cfe6fb" fontSize="12" fontFamily="sans-serif">{n.l}</text>
+        "M150 150 Q200 90 250 165",
+        "M150 150 Q120 230 168 262",
+        "M250 165 Q235 235 175 250",
+        "M150 150 Q110 200 132 245",
+      ].map((d, i) => (
+        <path key={i} d={d} fill="none" stroke="#e2725b" strokeWidth="1.4" opacity=".85" />
+      ))}
+      {[
+        { x: 150, y: 150 }, { x: 250, y: 165 }, { x: 175, y: 250 },
+        { x: 132, y: 245 }, { x: 168, y: 262 }, { x: 285, y: 205 },
+        { x: 240, y: 120 }, { x: 120, y: 195 }, { x: 300, y: 250 }, { x: 200, y: 130 },
+      ].map((n, i) => (
+        <g key={i}>
+          <circle cx={n.x} cy={n.y} r={i < 3 ? 8 : 5} fill="rgba(226,114,91,.18)" />
+          <circle cx={n.x} cy={n.y} r={i < 3 ? 3.4 : 2.2} fill="#e2725b" />
         </g>
       ))}
     </svg>

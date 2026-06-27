@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { LangProvider } from "@/i18n/lang";
 import { CustomCursor } from "@/components/CustomCursor";
+import { CookieBanner } from "@/components/CookieBanner";
 
 // Display gigante (boutique)
 const display = Bricolage_Grotesque({
@@ -55,7 +56,10 @@ export default function RootLayout({
     >
       <body className="min-h-full">
         <CustomCursor />
-        <LangProvider>{children}</LangProvider>
+        <LangProvider>
+          {children}
+          <CookieBanner />
+        </LangProvider>
       </body>
     </html>
   );

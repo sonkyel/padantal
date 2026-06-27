@@ -203,7 +203,7 @@ export default function Home() {
         </div>
         <div className="mx-auto mt-10 flex max-w-[1500px] flex-wrap items-center justify-between gap-3 border-t border-line pt-6 label-muted">
           <span>© {new Date().getFullYear()} {t.legal.name} — {t.footer.rights}</span>
-          <span>Know-how · Know-who</span>
+          <a href="/legal" className="hover:text-acc">{t.footer.legalLink}</a>
         </div>
       </footer>
     </>
